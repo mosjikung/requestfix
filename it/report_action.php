@@ -451,7 +451,7 @@ if(!$result2){
 
 
                 </div>
-                <center><button type="submit" name="update" id="update" class="btn btn-success">update</button></center>
+               
               </form>
             </div>
           </div>
