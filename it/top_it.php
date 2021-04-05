@@ -5,7 +5,7 @@ $username = $_SESSION['username'];
 $fix_stat = '';
 $user_app = '';
 
-$result10 = $notti->nottification($username,$fix_stat,$user_app);
+$result10 = $notti->nottification($username,$fix_stat,$user_app);s
 
 ?>
 <div class="main-content" id="panel">

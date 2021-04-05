@@ -140,6 +140,11 @@
         $user_show = mysqli_query($this->dbcon,"SELECT * FROM fix_it where username = '$username' and user_app ='$user_app' and fix_stat = '$fix_stat' or fix_stat = '$fix_stat2'");
        return $user_show;
       }
+      public function usershowlist($username,$user_app,$fix_stat,$fix_stat2){
+      
+        $user_show2 = mysqli_query($this->dbcon,"SELECT * FROM fix_it where username = '$username' and user_app ='$user_app' and fix_stat = '$fix_stat' or fix_stat = '$fix_stat2'");
+       return $user_show2;
+      }
 
       public function showlistapp($fix_stat,$can_fix,$can_fix2,$mgr_app){
        

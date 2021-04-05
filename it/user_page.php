@@ -24,6 +24,15 @@ error_reporting(0);
   $user_app = '';
   $result2 = $showdata->show_end($fix_stat,$username,$user_app);
  ?>
+ <?php
+  include_once ('function.php');
+  $user_show_list2 = new DB_CON();
+  $username = $_SESSION['username'];
+  $fix_stat = 'working';
+  $fix_stat2 = '';
+  $user_app = '';
+  $result3 = $user_show_list2->usershowlist($username,$user_app,$fix_stat,$fix_stat2);
+ ?>
 
 
 <!DOCTYPE html>
@@ -89,10 +98,10 @@ error_reporting(0);
               <table class="table align-items-center table-flush">
                 <thead class="thead-light">
                   <tr>
-                    <th scope="col">ผู้แจ้ง</th>
-                    <th scope="col">ประเภท</th>
-                    <th scope="col">ปัญหา</th>
-                    <th scope="col">รายเอียดงาน</th>
+                    <th class="text-center" scope="col">ผู้แจ้ง</th>
+                    <th class="text-center" scope="col">ประเภท</th>
+                    <th class="text-center" scope="col">ปัญหา</th>
+                    <th class="text-center" scope="col">รายเอียดงาน</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -105,17 +114,17 @@ error_reporting(0);
                    ?>
                   <tr>
 
-                    <td >  <?php echo $objResult['username']; ?></td>
+                    <td class="text-center">  <?php echo $objResult['username']; ?></td>
 
 
-                      <td ><?php echo $objResult['about']; ?></td>
+                      <td class="text-center"><?php echo $objResult['about']; ?></td>
 
 
-                      <td ><?php echo $objResult['problem']; ?></td>
+                      <td class="text-center"><?php echo $objResult['problem']; ?></td>
 
 
 
-                    <td><a href="fullview_finish.php?case_id=<?php echo $objResult['case_id']; ?>"  class="btn btn-success">รายละเอียดงาน</a></td>
+                    <td class="text-center"><a href="fullview_finish.php?case_id=<?php echo $objResult['case_id']; ?>"  class="btn btn-success">รายละเอียดงาน</a></td>
                     
                 </form>
                   </tr>
