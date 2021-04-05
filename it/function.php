@@ -164,7 +164,7 @@
        return $allucase_mgr;
      }
       
-     sssssssssssssssssss
+    
       
   }
 
