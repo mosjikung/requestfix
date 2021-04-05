@@ -8,6 +8,15 @@ $alldata = new DB_CON();
 
     $result = $alldata->showreport($fix_stat,$user_app,$case_id);
  ?>
+ <?php
+  include_once ('../it/function.php');
+  $user_show_list2 = new DB_CON();
+  $username = $_SESSION['username'];
+  $fix_stat = 'working';
+  $fix_stat2 = '';
+  $user_app = '';
+  $result3 = $user_show_list2->usershowlist($username,$user_app,$fix_stat,$fix_stat2);
+ ?>
 <!DOCTYPE html>
 <html>
 
