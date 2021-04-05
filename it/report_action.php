@@ -7,46 +7,11 @@ $per_id = $_GET['per_id'];
 
 $result = $showalldetail->showdetail($per_id);
  ?>
-<?php
-include_once('function_ac.php');
-$updatealldetail = new DB_CONZ();
-if(isset($_POST['update'])){
- $per_id = $_GET['per_id'];
- $action = $_POST['action'];
- $password = $_POST['password'];
- $email = $_POST['email'];
- $emailex = $_POST['emailex'];
- $file1 = $_POST['file1'];
- $per_r1 = $_POST['per_r1'];
- $per_wr1 = $_POST['per_wr1'];
- $per_mo1 = $_POST['per_mo1'];
- $file2 = $_POST['file2'];
- $per_r2 = $_POST['per_r2'];
- $per_wr2 = $_POST['per_wr2'];
- $per_mo2 = $_POST['per_mo2'];
- $file3 = $_POST['file3'];
- $per_r3 = $_POST['per_r3'];
- $per_wr3 = $_POST['per_wr3'];
- $per_mo3 = $_POST['per_mo3'];
- $file4 = $_POST['file4'];
- $per_r4= $_POST['per_r4'];
- $per_wr4 = $_POST['per_wr4'];
- $per_mo4 = $_POST['per_mo4']; 
- $leader_app = $_POST['approve'];
- $strdate = $_POST['strdate'];
- 
- $result2 = $updatealldetail->updateall($per_id,$action,$password,$email,$emailex,$file1,$per_r1,
- $per_wr1,$per_mo1,$file2,$per_r2,$per_wr2,$per_mo2,$file3,$per_r3,$per_wr3,$per_mo3,$file4,$per_r4,$per_wr4
- ,$per_mo4,$leader_app,$strdate);
-if(!$result2){
-  echo "<script>alert('บันทึกสำเร็จ');</script>";
-  echo "<script>window.location.href='app_action.php'</script>";
-}
 
 
 
-}
-?>
+
+
 <!DOCTYPE html>
 <html>
 
@@ -69,6 +34,7 @@ if(!$result2){
 </head>
 
 <body>
+
 <?php
   if($_SESSION['section']=="it"){
   include_once('main_it.php');
