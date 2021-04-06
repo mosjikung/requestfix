@@ -30,6 +30,15 @@ $resultfinish = $updatefinish->finish($case_id,$fix_stat,$end_date,$end_time);
 
 
  ?>
+ <?php
+include_once('function.php');
+$detail_user = new DB_CON();
+$fix_stat = 'end work';
+$username = $_SESSION['username'];
+$user_app = '';
+$result3 = $detail_user->detailuser($username,$fix_stat,$user_app);
+?>
+
 <!DOCTYPE html>
 <html>
 

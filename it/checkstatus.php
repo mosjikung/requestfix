@@ -12,6 +12,16 @@ session_start();
   $user_app = "";
   $result = $showdata->nottification($username,$fix_stat,$user_app);
 ?>
+ <?php
+include_once('function.php');
+$detail_user = new DB_CON();
+$fix_stat = 'end work';
+$username = $_SESSION['username'];
+$user_app = '';
+$result3 = $detail_user->detailuser($username,$fix_stat,$user_app);
+?>
+
+
 
 
 
@@ -64,18 +74,7 @@ session_start();
   
     <!-- Header -->
     <!-- Header -->
-    <div class="header bg-primary pb-6">
-      <div class="container-fluid">
-        <div class="header-body">
-          <div class="row align-items-center py-4">
-
-
-          </div>
-          <!-- Card stats -->
-
-        </div>
-      </div>
-    </div>
+   
     <!-- Page content -->
     
       <div class="row">
