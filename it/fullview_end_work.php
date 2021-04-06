@@ -8,6 +8,7 @@ $fix_stat = "end work";
 $result = $detail->fullview_last($case_id,$fix_stat);
 ?>
 
+
 <?php
 include_once('function.php');
 $updatefinish = new DB_CON();
@@ -27,9 +28,18 @@ $user_app = 'approve';
     echo "<script>window.location.href='end_work_u.php'</script>";
   }
 }
+?>
+<?php
+include_once('function.php');
+$detail_user = new DB_CON();
+$fix_stat = 'end work';
+$username = $_SESSION['username'];
+$user_app = '';
+$result3 = $detail_user->detailuser($username,$fix_stat,$user_app);
+?>
 
 
- ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -78,7 +88,7 @@ $user_app = 'approve';
     <!-- Header -->
 
     <!-- Page content -->
-    <div class="container-fluid mt--6">
+    <div class="container-fluid mt--12">
       <div class="row">
         <div class="col-xl-4 order-xl-2">
           <div class="card card-profile">
