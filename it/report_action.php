@@ -400,6 +400,7 @@ $result = $showalldetail->showdetail($per_id);
                         <?php                    
                         }
                         ?>
+                        ssss
                         
                       </div>
                     </div>
@@ -409,18 +410,27 @@ $result = $showalldetail->showdetail($per_id);
                     <div class="form-group">
                     <input class="form-control" type="text"  name="approve" id="approve" value="<?php echo $objResult['mgr_app'];?>"></input>
                     </div>
-                </div>
-                </div>
-                <div class="row">
-                  <div class="col-lg-6">
-                    <div class="form-group">
-                    <input class="form-control" type="text"  name="leader1" id="leader1" value="<?php echo $objResult['leader1'];?>"></input>
                     </div>
                     <div class="col-lg-6">
-                    
-                    <input class="form-control" type="text" name="date_leader_app" id="date_leader_app" value="<?php echo $objResult['date_leader_app'];?>"></input>
-                    </div>    
+                    <div class="form-group">
+                    <input class="form-control" type="text" name="date_mgr_app" id="date_mgr_app" value="<?php echo $objResult['date_mgr_app'];?>"></input>
                     </div>
+                  </div>
+                  </div>
+                <div class="row">
+                  <div class="col-md-6">
+                   <div class="form-group">
+                    <input class="form-control" type="text"  name="leader1" id="leader1" value="<?php echo $objResult['leader1'];?>"></input>
+                    </div>
+                    </div>
+                    <br>
+                    <div class="col-md-6">
+                    <div class="form-group">
+                    <input class="form-control" type="text" name="date_leader_app" id="date_leader_app" value="<?php echo $objResult['date_leader_app'];?>"></input>
+                    </div>
+                    </div>
+                    </div>
+                    <br>
                 </div>
                 </div>
                 <div class="row">
