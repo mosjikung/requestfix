@@ -6,7 +6,7 @@ $showalldetail =  new DB_CONZ();
 $per_id = $_GET['per_id'];
 
 $result = $showalldetail->showdetail($per_id);
- ?>
+ ?>s
 <?php
   include_once ('function.php');
   $user_show_list2 = new DB_CON();
