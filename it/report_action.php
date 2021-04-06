@@ -34,7 +34,7 @@ $result = $showalldetail->showdetail($per_id);
 </head>
 
 <body>
-sssss
+
 <?php
   if($_SESSION['section']=="it"){
   include_once('main_it.php');
