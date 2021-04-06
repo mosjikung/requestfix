@@ -86,7 +86,7 @@ $result3 = $detail_user->detailuser($username,$fix_stat,$user_app);
   ?>
     <!-- Header -->
     <!-- Header -->
-
+sss
     <!-- Page content -->
     <div class="container-fluid mt--12">
       <div class="row">
