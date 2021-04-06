@@ -136,12 +136,12 @@
       }
       
       public function user_show_list($username,$user_app,$fix_stat,$fix_stat2){
-      
+        
         $user_show = mysqli_query($this->dbcon,"SELECT * FROM fix_it where username = '$username' and user_app ='$user_app' and fix_stat = '$fix_stat' or fix_stat = '$fix_stat2'");
        return $user_show;
       }
       public function usershowlist($username,$user_app,$fix_stat,$fix_stat2){
-      
+        echo "SELECT * FROM fix_it where username = '$username' and user_app ='$user_app' and fix_stat = '$fix_stat' or fix_stat = '$fix_stat2'";
         $user_show2 = mysqli_query($this->dbcon,"SELECT * FROM fix_it where username = '$username' and user_app ='$user_app' and fix_stat = '$fix_stat' or fix_stat = '$fix_stat2'");
        return $user_show2;
       }
@@ -162,6 +162,12 @@
        echo "SELECT * FROM fix_it where fix_stat != '$fix_stat' and user_app = '$user_app'";
        $allucase_mgr = mysqli_query($this->dbcon,"SELECT * FROM fix_it where fix_stat != '$fix_stat' and user_app = '$user_app'");
        return $allucase_mgr;
+     }
+
+     public function showreport($fix_stat,$user_app,$case_id){
+       "SELECT * FROM fix_it where fix_stat = '$fix_stat' and user_app = '$user_app' case_id = '$case_id'";
+       $show_report = mysqli_query($this->dbcon,"SELECT * FROM fix_it where fix_stat = '$fix_stat' and user_app != '$user_app' and case_id = '$case_id'");
+       return $show_report;
      }
       
     
