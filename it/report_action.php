@@ -86,7 +86,7 @@ $result = $showalldetail->showdetail($per_id);
               <div class="row">
                 <div class="col">
                   
-                  <label>1.ท่านสามารถใช้ Account ID และ Password เพื่อเข้าสู่ระบบในส่วนที่กำหนดไว้ให้เท่านั้น</label><br>
+                  <label>1.ท่านสามารถใช้ Account ID และ Password เพื่อเข้าสู่ระบบในส่วนที่กำหนดไว้ให้เท่านั้น</label>m m <br>
                   <label>2.Password เป็นข้อมูลส่วนบุคคลที่ท่านจะต้องปกปิดไว้ โดยมิเปิดเผยให้ผู้อื่นรับทราบ และไม่ควรจดบันทึกไว้ในเอกสารหรือบันทึกที่ผู้อื่นสามารถพบเห็นได้สะดวก password จะต้องทำการเปลี่ยน password ทุกๆ 90 วัน</label><br>
                   <label>3.หากมีข้อสงสัยหรือพบปัญหาใดๆ เกี่ยวกับสิทธิ์การเข้าถึงข้อมูลกรุณาติดต่อฝ่ายคอมพิวเตอร์โดยทันที</label><br>
                   <label>4.หากพบว่าโปรแกรมมีปัญหา สามารถแจ้งได้ที่เบอร์3777 หรือline it support nt group</label><br>
@@ -405,9 +405,28 @@ $result = $showalldetail->showdetail($per_id);
                     </div>
                   </div>
                   <div class="row">
-                  <div class="col-lg-8">
+                  <div class="col-lg-6">
                     <div class="form-group">
                     <input class="form-control" type="text"  name="approve" id="approve" value="<?php echo $objResult['mgr_app'];?>"></input>
+                    </div>
+                </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                    <input class="form-control" type="text"  name="leader1" id="leader1" value="<?php echo $objResult['leader1'];?>"></input>
+                    </div>
+                    <div class="col-lg-6">
+                    
+                    <input class="form-control" type="text" name="date_leader_app" id="date_leader_app" value="<?php echo $objResult['date_leader_app'];?>"></input>
+                    </div>    
+                    </div>
+                </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-8">
+                    <div class="form-group">
+                    <input class="form-control" type="text"  name="leader1" id="leader1" value="<?php echo $objResult['leader1'];?>"></input>
                     </div>
                 </div>
                 </div>
