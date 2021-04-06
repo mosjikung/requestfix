@@ -1,0 +1,8 @@
+{
+    "editor.fontSize": 16,
+    "scm.inputFontSize": 18,
+    "debug.console.fontSize": 18,
+    "editor.tabSize": 16,
+    "workbench.sash.size": 18,
+    "workbench.tree.indent": 18
+}
