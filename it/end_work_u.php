@@ -12,6 +12,14 @@ session_start();
   $user_app = '';
   $result = $showdata->show_end($fix_stat,$username,$user_app);
  ?>
+ <?php
+include_once('function.php');
+$detail_user = new DB_CON();
+$fix_stat = 'end work';
+$username = $_SESSION['username'];
+$user_app = '';
+$result3 = $detail_user->detailuser($username,$fix_stat,$user_app);
+?>
 
 
 
@@ -65,18 +73,7 @@ session_start();
   
     <!-- Header -->
     <!-- Header -->
-    <div class="header bg-primary pb-6">
-      <div class="container-fluid">
-        <div class="header-body">
-          <div class="row align-items-center py-4">
 
-
-          </div>
-          <!-- Card stats -->
-
-        </div>
-      </div>
-    </div>
     <!-- Page content -->
     
       <div class="row">
@@ -96,11 +93,11 @@ session_start();
               <table class="table align-items-center table-flush">
                 <thead class="thead-light">
                   <tr>
-                    <th scope="col">ผู้แจ้ง</th>
-                    <th scope="col">ประเภท</th>
-                    <th scope="col">ปัญหา</th>
-                    <th scope="col">สถานะ</th>
-                    <th scope="col">Acept งาน</th>
+                    <th class="text-center" scope="col">ผู้แจ้ง</th>
+                    <th class="text-center" scope="col">ประเภท</th>
+                    <th class="text-center" scope="col">ปัญหา</th>
+                    <th class="text-center" scope="col">สถานะ</th>
+                    <th class="text-center" scope="col">Acept งาน</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -113,20 +110,20 @@ session_start();
                    ?>
                   <tr>
 
-                    <td > <?php echo $objResult['username']; ?></td>
+                    <td class="text-center"> <?php echo $objResult['username']; ?></td>
 
 
-                      <td ><?php echo $objResult['about']; ?></td>
+                      <td class="text-center"><?php echo $objResult['about']; ?></td>
 
 
-                      <td ><?php echo $objResult['problem']; ?></td>
+                      <td class="text-center"><?php echo $objResult['problem']; ?></td>
 
 
-                      <td ><?php echo $objResult['fix_stat']; ?></td>
+                      <td class="text-center"><?php echo $objResult['fix_stat']; ?></td>
 
 
 
-                    <td><a href="fullview_end_work.php?case_id=<?php echo $objResult['case_id'];?>" class="btn btn-success">ดูรายละเอียดงาน</a></td>
+                    <td class="text-center"><a href="fullview_end_work.php?case_id=<?php echo $objResult['case_id'];?>" class="btn btn-success">ดูรายละเอียดงาน</a></td>
                 <?php
 
                  ?>

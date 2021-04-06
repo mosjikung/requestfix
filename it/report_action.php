@@ -6,12 +6,12 @@ $showalldetail =  new DB_CONZ();
 $per_id = $_GET['per_id'];
 
 $result = $showalldetail->showdetail($per_id);
- ?>s
+ ?>
 <?php
   include_once ('function.php');
   $user_show_list2 = new DB_CON();
   $username = $_SESSION['username'];
-  $fix_stat = 'working';
+  $fix_stat = 'end work';
   $fix_stat2 = '';
   $user_app = '';
   $result3 = $user_show_list2->usershowlist($username,$user_app,$fix_stat,$fix_stat2);
@@ -125,11 +125,7 @@ $result = $showalldetail->showdetail($per_id);
                     <select class="form-control" name="action" id="action">
                           <option class="hidden"  value="<?php echo $objResult['action'];?>"  selected ><?php echo $objResult['action'];?></option>
 
-                          <option value="Add New User">Add New User</option>
-                          <option value="Modify Existing User">Modify Existing User</option>
-                          <option value="Delete Existing User">Delete Existing User</option>
-                          <option value="Special Permissions">Special Permissions</option>
-
+                          
 
                       </select>
                     </div>
@@ -438,18 +434,20 @@ $result = $showalldetail->showdetail($per_id);
                     <input class="form-control" type="text"  name="it_user" id="it_user" value="<?php echo $objResult['it_user'];?>"></input>
                     </div>
                 </div>
-                </div>
+                
                 <br>
                 <div class="col-lg-6">
                         <dvi class="form-group">
                           <input class="form-control" type="text" name="status" id="status" value="<?php echo $objResult['status']; ?>"></input>
-                          
+                         </div>
+                </div> 
+                </div>
                 
 
+                <center><button onclick="history.go(-1);">Go back</button></center>
 
 
-
-                </div>
+                
                
               </form>
             </div>
