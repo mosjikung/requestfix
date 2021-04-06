@@ -400,7 +400,7 @@ $result = $showalldetail->showdetail($per_id);
                         <?php                    
                         }
                         ?>
-                        ssss
+          
                         
                       </div>
                     </div>
@@ -431,15 +431,20 @@ $result = $showalldetail->showdetail($per_id);
                     </div>
                     </div>
                     <br>
-                </div>
-                </div>
+                
                 <div class="row">
-                  <div class="col-lg-8">
+                  <div class="col-lg-6">
                     <div class="form-group">
-                    <input class="form-control" type="text"  name="leader1" id="leader1" value="<?php echo $objResult['leader1'];?>"></input>
+                    <input class="form-control" type="text"  name="it_user" id="it_user" value="<?php echo $objResult['it_user'];?>"></input>
                     </div>
                 </div>
                 </div>
+                <br>
+                <div class="col-lg-6">
+                        <dvi class="form-group">
+                          <input class="form-control" type="text" name="status" id="status" value="<?php echo $objResult['status']; ?>"></input>
+                          
+                
 
 
 
