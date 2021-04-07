@@ -7,8 +7,15 @@ $per_id = $_GET['per_id'];
 
 $result = $showalldetail->showdetail($per_id);
  ?>
-
-
+<?php
+  include_once ('function.php');
+  $user_show_list2 = new DB_CON();
+  $username = $_SESSION['username'];
+  $fix_stat = 'end work';
+  $fix_stat2 = '';
+  $user_app = '';
+  $result3 = $user_show_list2->usershowlist($username,$user_app,$fix_stat,$fix_stat2);
+ ?>
 
 
 
@@ -79,7 +86,7 @@ $result = $showalldetail->showdetail($per_id);
               <div class="row">
                 <div class="col">
                   
-                  <label>1.ท่านสามารถใช้ Account ID และ Password เพื่อเข้าสู่ระบบในส่วนที่กำหนดไว้ให้เท่านั้น</label><br>
+                  <label>1.ท่านสามารถใช้ Account ID และ Password เพื่อเข้าสู่ระบบในส่วนที่กำหนดไว้ให้เท่านั้น</label>m m <br>
                   <label>2.Password เป็นข้อมูลส่วนบุคคลที่ท่านจะต้องปกปิดไว้ โดยมิเปิดเผยให้ผู้อื่นรับทราบ และไม่ควรจดบันทึกไว้ในเอกสารหรือบันทึกที่ผู้อื่นสามารถพบเห็นได้สะดวก password จะต้องทำการเปลี่ยน password ทุกๆ 90 วัน</label><br>
                   <label>3.หากมีข้อสงสัยหรือพบปัญหาใดๆ เกี่ยวกับสิทธิ์การเข้าถึงข้อมูลกรุณาติดต่อฝ่ายคอมพิวเตอร์โดยทันที</label><br>
                   <label>4.หากพบว่าโปรแกรมมีปัญหา สามารถแจ้งได้ที่เบอร์3777 หรือline it support nt group</label><br>
@@ -118,11 +125,7 @@ $result = $showalldetail->showdetail($per_id);
                     <select class="form-control" name="action" id="action">
                           <option class="hidden"  value="<?php echo $objResult['action'];?>"  selected ><?php echo $objResult['action'];?></option>
 
-                          <option value="Add New User">Add New User</option>
-                          <option value="Modify Existing User">Modify Existing User</option>
-                          <option value="Delete Existing User">Delete Existing User</option>
-                          <option value="Special Permissions">Special Permissions</option>
-
+                          
 
                       </select>
                     </div>
@@ -393,30 +396,58 @@ $result = $showalldetail->showdetail($per_id);
                         <?php                    
                         }
                         ?>
+          
                         
                       </div>
                     </div>
                   </div>
                   <div class="row">
-                  <div class="col-lg-8">
+                  <div class="col-lg-6">
                     <div class="form-group">
-                    <select class="form-control" name="approve" id="approve">
-                          <option class="hidden"  value=""></option>
-
-                          <option value="approve">Approve</option>
-                          <option value="non approve">Non approve</option>
-                         
-
-
-                      </select>
+                    <input class="form-control" type="text"  name="approve" id="approve" value="<?php echo $objResult['mgr_app'];?>"></input>
+                    </div>
+                    </div>
+                    <div class="col-lg-6">
+                    <div class="form-group">
+                    <input class="form-control" type="text" name="date_mgr_app" id="date_mgr_app" value="<?php echo $objResult['date_mgr_app'];?>"></input>
+                    </div>
+                  </div>
+                  </div>
+                <div class="row">
+                  <div class="col-md-6">
+                   <div class="form-group">
+                    <input class="form-control" type="text"  name="leader1" id="leader1" value="<?php echo $objResult['leader1'];?>"></input>
+                    </div>
+                    </div>
+                    <br>
+                    <div class="col-md-6">
+                    <div class="form-group">
+                    <input class="form-control" type="text" name="date_leader_app" id="date_leader_app" value="<?php echo $objResult['date_leader_app'];?>"></input>
+                    </div>
+                    </div>
+                    </div>
+                    <br>
+                
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                    <input class="form-control" type="text"  name="it_user" id="it_user" value="<?php echo $objResult['it_user'];?>"></input>
                     </div>
                 </div>
+                
+                <br>
+                <div class="col-lg-6">
+                        <dvi class="form-group">
+                          <input class="form-control" type="text" name="status" id="status" value="<?php echo $objResult['status']; ?>"></input>
+                         </div>
+                </div> 
                 </div>
+                
+
+                <center><button onclick="history.go(-1);">Go back</button></center>
 
 
-
-
-                </div>
+                
                
               </form>
             </div>
