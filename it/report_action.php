@@ -17,7 +17,7 @@ $result = $showalldetail->showdetail($per_id);
   $result3 = $user_show_list2->usershowlist($username,$user_app,$fix_stat,$fix_stat2);
  ?>
 
-s
+
 
 <!DOCTYPE html>
 <html>
