@@ -141,7 +141,11 @@
        return $user_show;
       }
       public function usershowlist($username,$user_app,$fix_stat,$fix_stat2){
+<<<<<<< HEAD
         echo "SELECT * FROM fix_it where username = '$username' and user_app ='$user_app' and fix_stat = '$fix_stat' or fix_stat = '$fix_stat2'";
+=======
+         "SELECT * FROM fix_it where username = '$username' and user_app ='$user_app' and fix_stat = '$fix_stat' or fix_stat = '$fix_stat2'";
+>>>>>>> 9d3d3f245f78f79ee0b73df305dafe86d78c8f9d
         $user_show2 = mysqli_query($this->dbcon,"SELECT * FROM fix_it where username = '$username' and user_app ='$user_app' and fix_stat = '$fix_stat' or fix_stat = '$fix_stat2'");
        return $user_show2;
       }
@@ -170,8 +174,16 @@
        return $show_report;
      }
       
+<<<<<<< HEAD
     
       
+=======
+     public function detailuser($username,$fix_stat,$user_app){
+       echo "SELECT * FROM fix_it where fix_stat='$fix_stat'  and username = '$username' and user_app = '$user_app'";
+       $show_detail_user = mysqli_query($this->dbcon,"SELECT * FROM fix_it where fix_stat='$fix_stat'  and username = '$username' and user_app = '$user_app'");
+       return $show_detail_user;
+     }
+>>>>>>> 9d3d3f245f78f79ee0b73df305dafe86d78c8f9d
   }
 
  ?>

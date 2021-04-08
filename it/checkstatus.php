@@ -12,6 +12,7 @@ session_start();
   $user_app = "";
   $result = $showdata->nottification($username,$fix_stat,$user_app);
 ?>
+<<<<<<< HEAD
  ?>
  <?php
   include_once ('function.php');
@@ -22,6 +23,17 @@ session_start();
   $user_app = '';
   $result3 = $user_show_list2->usershowlist($username,$user_app,$fix_stat,$fix_stat2);
  ?>
+=======
+ <?php
+include_once('function.php');
+$detail_user = new DB_CON();
+$fix_stat = 'end work';
+$username = $_SESSION['username'];
+$user_app = '';
+$result3 = $detail_user->detailuser($username,$fix_stat,$user_app);
+?>
+
+>>>>>>> 9d3d3f245f78f79ee0b73df305dafe86d78c8f9d
 
 
 
@@ -75,10 +87,15 @@ session_start();
   
     <!-- Header -->
     <!-- Header -->
+<<<<<<< HEAD
 
           <!-- Card stats -->
 
     <!-- Page cossntent -->
+=======
+   
+    <!-- Page content -->
+>>>>>>> 9d3d3f245f78f79ee0b73df305dafe86d78c8f9d
     
       <div class="row">
         <div class="col-xl-12">

@@ -28,6 +28,7 @@ $user_app = 'approve';
     echo "<script>window.location.href='end_work_u.php'</script>";
   }
 }
+<<<<<<< HEAD
 
 
  ?>
@@ -41,6 +42,19 @@ $user_app = 'approve';
   $user_app = '';
   $result3 = $user_show_list2->usershowlist($username,$user_app,$fix_stat,$fix_stat2);
  ?>
+=======
+?>
+<?php
+include_once('function.php');
+$detail_user = new DB_CON();
+$fix_stat = 'end work';
+$username = $_SESSION['username'];
+$user_app = '';
+$result3 = $detail_user->detailuser($username,$fix_stat,$user_app);
+?>
+
+
+>>>>>>> 9d3d3f245f78f79ee0b73df305dafe86d78c8f9d
 
 <!DOCTYPE html>
 <html>
@@ -88,7 +102,11 @@ $user_app = 'approve';
   ?>
     <!-- Header -->
     <!-- Header -->
+<<<<<<< HEAD
 
+=======
+sss
+>>>>>>> 9d3d3f245f78f79ee0b73df305dafe86d78c8f9d
     <!-- Page content -->
     <div class="container-fluid mt--12">
       <div class="row">

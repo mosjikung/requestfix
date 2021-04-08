@@ -12,6 +12,7 @@ session_start();
   $user_app = '';
   $result = $showdata->show_end($fix_stat,$username,$user_app);
  ?>
+<<<<<<< HEAD
  ?>
  <?php
   include_once ('function.php');
@@ -22,6 +23,16 @@ session_start();
   $user_app = '';
   $result3 = $user_show_list2->usershowlist($username,$user_app,$fix_stat,$fix_stat2);
  ?>
+=======
+ <?php
+include_once('function.php');
+$detail_user = new DB_CON();
+$fix_stat = 'end work';
+$username = $_SESSION['username'];
+$user_app = '';
+$result3 = $detail_user->detailuser($username,$fix_stat,$user_app);
+?>
+>>>>>>> 9d3d3f245f78f79ee0b73df305dafe86d78c8f9d
 
 
 
@@ -95,11 +106,19 @@ session_start();
               <table class="table align-items-center table-flush">
                 <thead class="thead-light">
                   <tr>
+<<<<<<< HEAD
                     <th scope="col">ผู้แจ้ง</th>
                     <th scope="col">ประเภท</th>
                     <th scope="col">ปัญหา</th>
                     <th scope="col">สถานะ</th>
                     <th scope="col">Acept งาน</th>
+=======
+                    <th class="text-center" scope="col">ผู้แจ้ง</th>
+                    <th class="text-center" scope="col">ประเภท</th>
+                    <th class="text-center" scope="col">ปัญหา</th>
+                    <th class="text-center" scope="col">สถานะ</th>
+                    <th class="text-center" scope="col">Acept งาน</th>
+>>>>>>> 9d3d3f245f78f79ee0b73df305dafe86d78c8f9d
                   </tr>
                 </thead>
                 <tbody>
@@ -112,6 +131,7 @@ session_start();
                    ?>
                   <tr>
 
+<<<<<<< HEAD
                     <td > <?php echo $objResult['username']; ?></td>
 
 
@@ -126,6 +146,22 @@ session_start();
 
 
                     <td><a href="fullview_end_work.php?case_id=<?php echo $objResult['case_id'];?>" class="btn btn-success">ดูรายละเอียดงาน</a></td>
+=======
+                    <td class="text-center"> <?php echo $objResult['username']; ?></td>
+
+
+                      <td class="text-center"><?php echo $objResult['about']; ?></td>
+
+
+                      <td class="text-center"><?php echo $objResult['problem']; ?></td>
+
+
+                      <td class="text-center"><?php echo $objResult['fix_stat']; ?></td>
+
+
+
+                    <td class="text-center"><a href="fullview_end_work.php?case_id=<?php echo $objResult['case_id'];?>" class="btn btn-success">ดูรายละเอียดงาน</a></td>
+>>>>>>> 9d3d3f245f78f79ee0b73df305dafe86d78c8f9d
                 <?php
 
                  ?>

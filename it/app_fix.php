@@ -36,7 +36,11 @@ $result2 = $showapp->showlistapp($fix_stat,$can_fix,$can_fix2,$mgr_app);
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
   <meta name="author" content="Creative Tim">
+<<<<<<< HEAD
   <title>Request Fix Nutritionsc</title>
+=======
+  <title>Argon Dashboard - Free Dashboard for Bootstrap 4</title>
+>>>>>>> 9d3d3f245f78f79ee0b73df305dafe86d78c8f9d
   <!-- Favicon -->
   <link rel="icon" href="assets/img/brand/favicon.png" type="image/png">
   <!-- Fonts -->

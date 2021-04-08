@@ -102,8 +102,19 @@
     $detailx = mysqli_query($this->dbcon,"SELECT * FROM question where q_id = '$q_id'");
     return $detailx;
   }
+<<<<<<< HEAD
   
   }
+=======
+
+  public function user_show_list($username,$user_app,$fix_stat,$fix_stat2){
+        
+    $user_show = mysqli_query($this->dbcon,"SELECT * FROM fix_it where username = '$username' and user_app ='$user_app' and fix_stat = '$fix_stat' or fix_stat = '$fix_stat2'");
+   return $user_show;
+  
+  }
+}
+>>>>>>> 9d3d3f245f78f79ee0b73df305dafe86d78c8f9d
 
   
 ?>

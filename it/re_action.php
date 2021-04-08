@@ -71,7 +71,11 @@ if(isset($_POST['insert'])){
 
 </head>
 
+<<<<<<< HEAD
 <body> 
+=======
+<body>
+>>>>>>> 9d3d3f245f78f79ee0b73df305dafe86d78c8f9d
 <?php
   if($_SESSION['section']=="it"){
   include_once('main_it.php');

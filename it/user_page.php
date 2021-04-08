@@ -5,7 +5,11 @@ error_reporting(0);
   echo "<script>window.location.href='index.php'</script>";
   }
  ?>
+<<<<<<< HEAD
 sss
+=======
+
+>>>>>>> 9d3d3f245f78f79ee0b73df305dafe86d78c8f9d
  <?php
   include_once ('function.php');
   $user_show_list = new DB_CON();
