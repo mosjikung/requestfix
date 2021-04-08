@@ -5,7 +5,7 @@ error_reporting(0);
   echo "<script>window.location.href='index.php'</script>";
   }
  ?>
-
+sss
  <?php
   include_once ('function.php');
   $user_show_list = new DB_CON();
