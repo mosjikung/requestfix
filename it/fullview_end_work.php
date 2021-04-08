@@ -78,7 +78,7 @@ $user_app = 'approve';
     <!-- Header -->
 
     <!-- Page content -->
-    <div class="container-fluid mt--6">
+    <div class="container-fluid mt--12">
       <div class="row">
         <div class="col-xl-4 order-xl-2">
           <div class="card card-profile">
