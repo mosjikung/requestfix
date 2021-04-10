@@ -114,7 +114,7 @@
       }
       
       public function nottification($username,$fix_stat,$user_app){
-         "SELECT * FROM fix_it where username = '$username' and fix_stat = '$fix_stat' and user_app = '$user_app'";
+       echo  "SELECT * FROM fix_it where username = '$username' and fix_stat = '$fix_stat' and user_app = '$user_app'";
         $allucase = mysqli_query($this->dbcon,"SELECT * FROM fix_it where username = '$username' and fix_stat != '$fix_stat' and user_app = '$user_app'");
         return $allucase;
       }
