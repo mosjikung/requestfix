@@ -22,11 +22,15 @@ $can_fix2 = '';
 $mgr_app = '';
 $result2 = $showapp->showlistapp($fix_stat,$can_fix,$can_fix2,$mgr_app);
 
-
 ?>
-
-
-
+<?php
+include_once('function.php');
+$showmgrs = new DB_CON();
+$fix_stat =  'working';
+$can_fix = 'ซ่อมได้';
+$mgr_app = '';
+$result3 = $showmgrs->nottification_mgr($can_fix,$fix_stat,$mgr_app);
+?>
 
 <!DOCTYPE html>
 <html>
@@ -76,18 +80,7 @@ $result2 = $showapp->showlistapp($fix_stat,$can_fix,$can_fix2,$mgr_app);
   
     <!-- Header -->
     <!-- Header -->
-    <div class="header bg-primary pb-6">
-      <div class="container-fluid">
-        <div class="header-body">
-          <div class="row align-items-center py-4">
-
-
-          </div>
-          <!-- Card stats -->
-
-        </div>
-      </div>
-    </div>
+    
     <!-- Page content -->
     
       <div class="row">

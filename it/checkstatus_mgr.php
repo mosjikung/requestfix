@@ -3,14 +3,22 @@ session_start();
   if($_SESSION['username']==""){
   echo "<script>window.location.href='index.php'</script>";
   }
-
+?>
+  <?php
   include_once('function.php');
-  $showdata_mgr = new DB_CON();
-  
-  $username = $_SESSION['username'];
-  $fix_stat = 'end working';
-  $user_app = "";
-  $result = $showdata_mgr->nottification_mgr($username,$fix_stat,$user_app);
+  $showmgrs = new DB_CON();
+  $fix_stat =  'working';
+  $can_fix = 'ซ่อมได้';
+  $mgr_app = '';
+  $result3 = $showmgrs->nottification_mgr($can_fix,$fix_stat,$mgr_app);
+  ?>
+<?php
+include_once('function.php');
+$checkst = new DB_CON();
+$fix_stat = 'end work';
+$can_fix = 'ซ่อมได้';
+$result = $checkst->checkstatus_mgr($fix_stat,$can_fix);
+
 ?>
 
 

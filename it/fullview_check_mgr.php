@@ -32,6 +32,14 @@ $resultfinish = $updatefinish->finish($case_id,$fix_stat,$end_date,$end_time);
 
 
  ?>
+   <?php
+  include_once('function.php');
+  $showmgrs = new DB_CON();
+  $fix_stat =  'working';
+  $can_fix = 'ซ่อมได้';
+  $mgr_app = '';
+  $result3 = $showmgrs->nottification_mgr($can_fix,$fix_stat,$mgr_app);
+  ?>
  
 <!DOCTYPE html>
 <html>

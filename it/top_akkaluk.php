@@ -31,7 +31,7 @@
                
 
                 <?php
-                 $objResult2 = mysqli_num_rows($result2);
+                 $objResult2 = mysqli_num_rows($result3);
                 ?>
                 <div class="px-3 py-3">
                   <h6 class="text-sm text-muted m-0">You have <strong class="text-primary"><?php echo $objResult2;?></strong> notifications.</h6>

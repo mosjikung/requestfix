@@ -147,7 +147,7 @@
       }
 
       public function showlistapp($fix_stat,$can_fix,$can_fix2,$mgr_app){
-       
+       echo "SELECT * FROM fix_it where fix_stat != '$fix_stat' and can_fix != '$can_fix' and can_fix !='$can_fix2' and mgr_app = '$mgr_app'";
         $showapp = mysqli_query($this->dbcon,"SELECT * FROM fix_it where fix_stat != '$fix_stat' and can_fix != '$can_fix' and can_fix !='$can_fix2' and mgr_app = '$mgr_app'");
         return $showapp;
       }
@@ -158,9 +158,9 @@
         return $cal_score;
 
       }
-      public function nottification_mgr($username,$fix_stat,$user_app){
-       echo "SELECT * FROM fix_it where fix_stat != '$fix_stat' and user_app = '$user_app'";
-       $allucase_mgr = mysqli_query($this->dbcon,"SELECT * FROM fix_it where fix_stat != '$fix_stat' and user_app = '$user_app'");
+      public function nottification_mgr($can_fix,$fix_stat,$mgr_app){
+      "SELECT * FROM fix_it where can_fix = '$can_fix' and fix_stat = '$fix_stat' and mgr_app = '$mgr_app'";
+       $allucase_mgr = mysqli_query($this->dbcon,"SELECT * FROM fix_it where can_fix != '$can_fix' and fix_stat = '$fix_stat' and mgr_app = '$mgr_app'");
        return $allucase_mgr;
      }
 
@@ -169,6 +169,13 @@
        $show_report = mysqli_query($this->dbcon,"SELECT * FROM fix_it where fix_stat = '$fix_stat' and user_app != '$user_app' and case_id = '$case_id'");
        return $show_report;
      }
+     
+     public function checkstatus_mgr($fix_stat,$can_fix){
+       echo "SELECT * FROM fix_it where fix_stat != '$fix_stat' and can_fix != '$can_fix'";
+       $checkmgr = mysqli_query($this->dbcon,"SELECT * FROM fix_it where fix_stat != '$fix_stat' and can_fix != '$can_fix'");
+       return $checkmgr;
+     }
+     
       
     
       
