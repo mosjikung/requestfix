@@ -15,7 +15,7 @@ if (isset($_POST['insert'])) {
     $q3 = $_POST['q3'];
     $q4 = $_POST['q4'];
     $q5 = $_POST['q5'];
-    
+    sss
     
     $sugguestion = $_POST['sugguestion'];
     $case_id = $_GET['case_id'];
