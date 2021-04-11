@@ -12,7 +12,15 @@ session_start();
   $user_app = '';
   $result = $showdata->show_end($fix_stat,$username,$user_app);
  ?>
-
+<?php
+  include_once ('function.php');
+  $user_show_list2 = new DB_CON();
+  $username = $_SESSION['username'];
+  $fix_stat = 'working';
+  $fix_stat2 = '';
+  $user_app = '';
+  $result3 = $user_show_list2->usershowlist($username,$user_app,$fix_stat,$fix_stat2);
+ ?>
 
 
 
@@ -65,18 +73,7 @@ session_start();
   
     <!-- Header -->
     <!-- Header -->
-    <div class="header bg-primary pb-6">
-      <div class="container-fluid">
-        <div class="header-body">
-          <div class="row align-items-center py-4">
-
-
-          </div>
-          <!-- Card stats -->
-
-        </div>
-      </div>
-    </div>
+ 
     <!-- Page content -->
     
       <div class="row">
