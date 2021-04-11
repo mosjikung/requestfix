@@ -1,6 +1,6 @@
 <?php
 session_start();
-error_reporting(1);
+error_reporting(0);
 include_once('function_ac.php');
 $showalldetail =  new DB_CONZ();
 $per_id = $_GET['per_id'];
@@ -42,11 +42,18 @@ if(!$result2){
   echo "<script>alert('บันทึกสำเร็จ');</script>";
   echo "<script>window.location.href='app_action.php'</script>";
 }
-
-
-
 }
 ?>
+<?php
+include_once('function.php');
+$showmgrs = new DB_CON();
+$fix_stat =  'working';
+$can_fix = 'ซ่อมได้';
+$mgr_app = '';
+$result3 = $showmgrs->nottification_mgr($can_fix,$fix_stat,$mgr_app);
+?>
+
+
 <!DOCTYPE html>
 <html>
 
