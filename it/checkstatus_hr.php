@@ -1,7 +1,7 @@
 <?php
 session_start();
   if($_SESSION['username']==""){
-  echo "<script>window.location.href='index.php'</script>";
+  echo "<script>window.location.href='../index.php'</script>";
   }
 
   include_once('functions.php');

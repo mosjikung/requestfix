@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 ?>
 <html lang="en" dir="ltr">
   <head>
@@ -62,6 +63,15 @@ session_start();
                   <form action="ma/mgr_page.php">
                   <button type="submit" >หน้าหลัก</button>
                   </form>
+        <?php
+        }else{
+          ?>
+          <form action="ma/re_ma.php">
+                <button type="submit" >ใบแจ้งซ่อม</button>
+                </form>
+                <form action="ma/user_page.php">
+                <button type="submit" >หน้าหลัก</button>
+                </form>
         <?php
         }
           ?>

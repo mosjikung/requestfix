@@ -65,9 +65,9 @@ error_reporting(0);
 <body>
   <!-- Sidenav -->
   <?php
-  if($_SESSION['section']=="it"){
-  include_once('main_it.php');
-  include_once('top_it.php');
+  if($_SESSION['section']=="ma"){
+  include_once('main_ma.php');
+  include_once('top_ma.php');
   }elseif($_SESSION['username']=="akkaluk"){
   include_once('main_akkaluk.php');
   include_once('top_akkaluk.php');

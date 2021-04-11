@@ -65,9 +65,9 @@ error_reporting(0);
 <body>
   <!-- Sidenav -->
   <?php
-  if($_SESSION['section']=="it"){
-  include_once('main_it.php');
-  include_once('top_it.php');
+  if($_SESSION['section']=="ma"){
+  include_once('main_ma.php');
+  include_once('top_ma.php');
   }elseif($_SESSION['username']=="akkaluk"){
   include_once('main_akkaluk.php');
   include_once('top_akkaluk.php');
@@ -87,125 +87,10 @@ error_reporting(0);
     <!-- Page content -->
     <div class="container-fluid mt--0">
      
-      <div class="row">
-        <div class="col-xl-12">
-          <div class="card">
-            <div class="card-header border-0">
-              <div class="row align-items-center">
-                <div class="col">
-                  <h3 class="mb-0">List งานที่แจ้ง IT</h3>
-                </div>
-
-              </div>
-            </div>
-            <div class="table-responsive">
-              <form name="1" method="post">
-              <!-- Projects table -->
-              <table class="table align-items-center table-flush">
-                <thead class="thead-light">
-                  <tr>
-                    <th scope="col">ผู้แจ้ง</th>
-                    <th scope="col">ประเภท</th>
-                    <th scope="col">ปัญหา</th>
-                    <th scope="col">รายเอียดงาน</th>
-                  </tr>
-                </thead>
-                <tbody>
-
-                  <?php
-
-                  while($objResult = mysqli_fetch_array($result)){
-
-
-                   ?>
-                  <tr>
-
-                    <td >  <?php echo $objResult['username']; ?></td>
-
-
-                      <td ><?php echo $objResult['about']; ?></td>
-
-
-                      <td ><?php echo $objResult['problem']; ?></td>
-
-
-
-                    <td><a href="fullview_finish.php?case_id=<?php echo $objResult['case_id']; ?>"  class="btn btn-success">รายละเอียดงาน</a></td>
-                    
-                </form>
-                  </tr>
-                  <?php
-                  }
-                  ?>
-                  <tr>
-
-
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
+    
+      
           
-        </div>
-        <div class="col-xl-12">
-          <div class="card">
-            <div class="card-header border-0">
-              <div class="row align-items-center">
-                <div class="col">
-                  <h3 class="mb-0">List ที่ซ่อมเสร็จแล้ว</h3>
-                </div>
-
-              </div>
-            </div>
-            <div class="table-responsive">
-              <form name="1" method="post">
-              <!-- Projects table -->
-              <table class="table align-items-center table-flush">
-                <thead class="thead-light">
-                  <tr>
-                    <th scope="col">ผู้แจ้ง</th>
-                    <th scope="col">ประเภท</th>
-                    <th scope="col">ปัญหา</th>
-                    <th scope="col">รายละเอียดงาน</th>
-                  </tr>
-                </thead>
-                <tbody>
-
-                  <?php
-
-                  while($objResult2 = mysqli_fetch_array($result2)){
-
-
-                   ?>
-                  <tr>
-
-                    <td >  <?php echo $objResult2['username']; ?></td>
-
-
-                      <td ><?php echo $objResult2['about']; ?></td>
-
-
-                      <td ><?php echo $objResult2['problem']; ?></td>
-
-
-
-                    <td><a href="fullview_end_work.php?case_id=<?php echo $objResult2['case_id']; ?>"class="btn btn-success">ดูรายละเอียด</a></td>
-                    
-                </form>
-                  </tr>
-                  <?php
-                  }
-                  ?>
-                  <tr>
-
-
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-          
-        </div>
+        
         <div class="col-xl-12">
           <div class="card">
             <div class="card-header border-0">

@@ -51,18 +51,15 @@ if (isset($_POST['insert'])) {
 
 <body>
 <?php
-  if($_SESSION['section']=="it"){
-  include_once('main_it.php');
-  include_once('top_it.php');
+  if($_SESSION['section']=="ma"){
+  include_once('main_ma.php');
+  include_once('top_ma.php');
   }elseif($_SESSION['username']=="akkaluk"){
   include_once('main_akkaluk.php');
   include_once('top_akkaluk.php');
   }elseif($_SESSION['section']=="hr" && $_SESSION['level_job']=="ผู้จัดการ"){
   include_once('main_hr_mgr.php');
   include_once('top_hr_mgr.php');
-  }elseif($_SESSION['section']=="hr"){
-  include_once('main_ma.php');
-  include_once('top_ma.php');
   }elseif($_SESSION['section']=="hr"){
   include_once('main_hr.php');
   include_once('top_hr.php');
