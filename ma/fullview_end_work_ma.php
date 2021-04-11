@@ -30,6 +30,13 @@ $user_app = 'approve';
 
 
  ?>
+  <?php
+  include_once('functions.php');
+  $notuser = new DB_CON();
+  $username = $_SESSION['username'];
+  $fix_stat = '';
+  $result3 = $notuser->nottification_user($username,$fix_stat);
+ ?>
 <!DOCTYPE html>
 <html>
 

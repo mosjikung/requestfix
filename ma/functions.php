@@ -170,6 +170,12 @@
         return $cal_score;
 
       }
+
+      public function nottification_user($username,$fix_stat){
+        "SELECT * FROM fix_ma where username = '$username' and fix_stat = '$fix_stat'";
+        $not_user = mysqli_query($this->dbcon,"SELECT * FROM fix_ma where username = '$username' and fix_stat = '$fix_stat'");
+        return $not_user;
+      }
       
       }
     

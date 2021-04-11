@@ -10,6 +10,13 @@ session_start();
   $username = $_SESSION['username'];
   $result = $showdata->nottification($username);
 ?>
+ <?php
+  include_once('functions.php');
+  $notuser = new DB_CON();
+  $username = $_SESSION['username'];
+  $fix_stat = '';
+  $result3 = $notuser->nottification_user($username,$fix_stat);
+ ?>
 
 
 
@@ -59,18 +66,7 @@ session_start();
   
     <!-- Header -->
     <!-- Header -->
-    <div class="header bg-primary pb-6">
-      <div class="container-fluid">
-        <div class="header-body">
-          <div class="row align-items-center py-4">
 
-
-          </div>
-          <!-- Card stats -->
-
-        </div>
-      </div>
-    </div>
     <!-- Page content -->
     
       <div class="row">
