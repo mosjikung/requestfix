@@ -39,7 +39,7 @@
         }
 
         public function alllist($fix_stat,$fix_stat2,$mgr_app){
-         "SELECT * FROM fix_ma where fix_stat='$fix_stat' or fix_stat = '$fix_stat2' or mgr_app = '$mgr_app'";
+        "SELECT * FROM fix_ma where fix_stat='$fix_stat' or fix_stat = '$fix_stat2' or mgr_app = '$mgr_app'";
             $showlist = mysqli_query($this->dbcon,"SELECT * FROM fix_ma where fix_stat='$fix_stat' or fix_stat = '$fix_stat2' or mgr_app = '$mgr_app'");
             return $showlist;
         }
@@ -170,12 +170,22 @@
         return $cal_score;
 
       }
-
       public function nottification_user($username,$fix_stat){
-        "SELECT * FROM fix_ma where username = '$username' and fix_stat = '$fix_stat'";
+        echo "SELECT * FROM fix_ma where username = '$username' and fix_stat = '$fix_stat'";
         $not_user = mysqli_query($this->dbcon,"SELECT * FROM fix_ma where username = '$username' and fix_stat = '$fix_stat'");
         return $not_user;
       }
+      public function nottification_mgr($username,$fix_stat){
+        "SELECT * FROM fix_ma where username = '$username' and fix_stat = '$fix_stat'";
+        $not_mgr = mysqli_query($this->dbcon,"SELECT * FROM fix_ma where username = '$username' and fix_stat = '$fix_stat'");
+        return $not_mgr;
+      }
+      public function nottification_hr($fix_stat,$ac_name){
+        echo "SELECT * FROM fix_ma where fixstat = '$fix_stat' and ac_name = '$ac_name'";
+        $not_hr = mysqli_query($this->dbcon,"SELECT * FROM fix_ma where fix_stat = '$fix_stat' and ac_name = '$ac_name'");
+        return $not_hr;
+      }
+     
       
       }
     

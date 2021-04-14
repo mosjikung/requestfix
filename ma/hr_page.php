@@ -4,7 +4,7 @@ session_start();
   echo "<script>window.location.href='index.php'</script>";
   }
 
-include_once('function.php');
+include_once('functions.php');
 $showlist = new DB_CON();
 $fix_stat = '';
 $fix_stat2 = 'working';
@@ -14,7 +14,7 @@ $result = $showlist->alllist($fix_stat,$fix_stat2,$mgr_app);
  ?>
  <?php
 
-     include_once('function.php');
+     include_once('functions.php');
      $updatedata = new DB_CON();
 
      if(isset($_GET['update'])){
@@ -26,19 +26,19 @@ $result = $showlist->alllist($fix_stat,$fix_stat2,$mgr_app);
 
  ?>
  <?php
-  include_once('function.php');
+  include_once('functions.php');
   $checkdata = new DB_CON();
    $fix_stat = '';
    $result2 = $checkdata->count_list($fix_stat);
   ?>
 
-  <?php
-  include_once('function.php');
-  $show_u_list = new DB_CON();
-  $username = $_SESSION['username'];
-  $result3 = $show_u_list->nottification($username);
-?>
-
+ <?php
+  require_once('functions.php');
+  $notti_hr = new DB_CON();
+  $fix_stat = '';
+  $ac_name = '';
+  $result3 = $notti_hr->nottification_hr($fix_stat,$ac_name);
+ ?>
 
 
 
@@ -88,18 +88,7 @@ $result = $showlist->alllist($fix_stat,$fix_stat2,$mgr_app);
  
     <!-- Header -->
     <!-- Header -->
-    <div class="header bg-primary pb-6">
-      <div class="container-fluid">
-        <div class="header-body">
-          <div class="row align-items-center py-4">
 
-
-          </div>
-          <!-- Card stats -->
-
-        </div>
-      </div>
-    </div>
     <!-- Page content -->
     <div class="container-fluid mt--0">
      

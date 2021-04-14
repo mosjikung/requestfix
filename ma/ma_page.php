@@ -92,18 +92,7 @@ $result = $showlist->alllist($fix_stat,$fix_stat2,$mgr_app);
  
     <!-- Header -->
     <!-- Header -->
-    <div class="header bg-primary pb-6">
-      <div class="container-fluid">
-        <div class="header-body">
-          <div class="row align-items-center py-4">
-
-
-          </div>
-          <!-- Card stats -->
-
-        </div>
-      </div>
-    </div>
+   
     <!-- Page content -->
     <div class="container-fluid mt--0">
      

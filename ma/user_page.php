@@ -6,24 +6,7 @@ error_reporting(0);
   }
  ?>
 
- <?php
-  include_once ('function.php');
-  $user_show_list = new DB_CON();
-  $username = $_SESSION['username'];
-  $fix_stat = 'working';
-  $fix_stat2 = '';
-  $user_app = '';
-  $result = $user_show_list->user_show_list($username,$user_app,$fix_stat,$fix_stat2);
- ?>
- <?php
-  include_once ('function.php');
-  
-  $showdata = new DB_CON();
-  $fix_stat = 'end work';
-  $username = $_SESSION['username'];
-  $user_app = '';
-  $result2 = $showdata->show_end($fix_stat,$username,$user_app);
- ?>
+ 
  <?php
   require_once ('function_sp.php');
   $user_show_list_ma = new DB_CONS();
@@ -41,6 +24,14 @@ error_reporting(0);
   $user_app = '';
   $result4 = $showdata_ma->show_end_ma($fix_stat,$username,$user_app);
  ?>
+ <?php
+  require_once('functions.php');
+  $notti_user = new DB_CON();
+  $username = $_SESSION['username'];
+  $fix_stat = 'working';
+  $result3 = $notti_user->nottification_user($username,$fix_stat);
+
+?>
 <!DOCTYPE html>
 <html>
 
