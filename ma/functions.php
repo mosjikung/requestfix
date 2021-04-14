@@ -175,9 +175,9 @@
         $not_user = mysqli_query($this->dbcon,"SELECT * FROM fix_ma where username = '$username' and fix_stat = '$fix_stat'");
         return $not_user;
       }
-      public function nottification_mgr($username,$fix_stat){
-        "SELECT * FROM fix_ma where username = '$username' and fix_stat = '$fix_stat'";
-        $not_mgr = mysqli_query($this->dbcon,"SELECT * FROM fix_ma where username = '$username' and fix_stat = '$fix_stat'");
+      public function nottification_mgr($fix_stat,$mgr_app){
+        echo "SELECT * FROM fix_ma where fix_stat != '$fix_stat' and mgr_app = '$mgr_app'";
+        $not_mgr = mysqli_query($this->dbcon,"SELECT * FROM fix_ma where fix_stat != '$fix_stat' and mgr_app = '$mgr_app'");
         return $not_mgr;
       }
       public function nottification_hr($fix_stat,$ac_name){

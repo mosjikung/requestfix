@@ -31,14 +31,26 @@ $result = $showlist->alllist($fix_stat,$fix_stat2,$mgr_app);
    $fix_stat = '';
    $result2 = $checkdata->count_list($fix_stat);
   ?>
-
+<?php
+if($_SESSION['section']=="hr" && $_SESSION['level_job']=="ผู้จัดการ"){
+?>
  <?php
+  require_once('functions.php');
+  $notti_mgr = new DB_CON();
+  $fix_stat = '';
+  $mgr_app = '';
+  $result3 = $notti_mgr->nottification_mgr($fix_stat,$mgr_app);
+  ?>
+  <?php
+}else{
   require_once('functions.php');
   $notti_hr = new DB_CON();
   $fix_stat = '';
   $ac_name = '';
   $result3 = $notti_hr->nottification_hr($fix_stat,$ac_name);
+}
  ?>
+
 
 
 

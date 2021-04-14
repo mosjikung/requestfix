@@ -11,6 +11,13 @@ $username = 'sangdeuan';
 $fix_stat = 'working';
 $result = $showlist->canfixit($username,$fix_stat);
 ?>
+ <?php
+  require_once('functions.php');
+  $notti_mgr = new DB_CON();
+  $fix_stat = '';
+  $mgr_app = '';
+  $result3 = $notti_mgr->nottification_mgr($fix_stat,$mgr_app);
+  ?>
 
 
 
