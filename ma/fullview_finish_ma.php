@@ -248,8 +248,6 @@ $resultfinish = $updatefinish->finish($case_id,$fix_stat,$end_date,$end_time);
 
                 <label>สถานะ  :<?php echo $objResult['fix_stat'];?></label>
               </div>
-              
-              
 
             </div>
             <center><button type="submit" name="finish" onClick="return confirm('คุณต้องการปิดงานนี้หรือไม่?');" class="btn btn-success">กดเพื่อปิดงาน</button></center>

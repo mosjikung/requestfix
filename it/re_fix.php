@@ -23,13 +23,13 @@ if (isset($_POST['insert'])) {
     $sql = $insertdata->insertfixit($username, $section, $about, $problem, $number,$notice,$crt_date,$crt_time,$status,$last_update,$who_update);
    
 
-    //if ($sql) {
-      //  echo "<script>alert('Record Inserted Successfully!');</script>";
-      //  echo "<script>window.location.href='index.php'</script>";
-  //  } else {
-//echo "<script>alert('Something went wrong! Please try again!');</script>";
-    //    echo "<script>window.location.href='insert.php'</script>";
-  //  }
+    if ($sql) {
+      echo "<script>alert('Record Inserted Successfully!');</script>";
+      echo "<script>window.location.href='../it/re_fix.php'</script>";
+    } else {
+      echo "<script>alert('Something went wrong! Please try again!');</script>";
+     echo "<script>window.location.href='../it/re_fix.php'</script>";
+   }
     }else{
       
         $about = $_POST['other'];
@@ -40,10 +40,25 @@ if (isset($_POST['insert'])) {
     
     
         $sql = $insertdata->insertfixit($username, $section, $about, $problem, $number,$notice,$crt_date,$crt_time,$status,$last_update,$who_update);
-        
+        if ($sql) {
+          echo "<script>alert('Record Inserted Successfully!');</script>";
+          echo "<script>window.location.href='../it/re_fix.php'</script>";
+        } else {
+          echo "<script>alert('Something went wrong! Please try again!');</script>";
+         echo "<script>window.location.href='../it/re_fix.php'</script>";
+       }
     }
 }
  ?>
+ <?php
+  require_once('function.php');
+  $notti_user = new DB_CON();
+  $username = $_SESSION['username'];
+  $fix_stat = '';
+  $ac_name = '';
+  $result3  = $notti_user->nottification_user($username,$fix_stat,$ac_name);
+ ?>
+
 <!DOCTYPE html>
 <html>
 

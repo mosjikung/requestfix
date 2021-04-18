@@ -49,6 +49,15 @@ if(isset($_POST['insert'])){
 }
 
  ?>
+ <?php
+  require_once('function_ac.php');
+  $notti_use = new DB_CONZ();
+  $username = $_SESSION['username'];
+  $status = '';
+  $it_user = '';
+  $result3 = $notti_use->nottification_user($username,$status,$it_user);
+ ?>
+
 
 <!DOCTYPE html>
 <html>

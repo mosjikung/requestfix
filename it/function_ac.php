@@ -103,6 +103,12 @@
     return $detailx;
   }
   
+  public function nottification_user($username,$status,$it_user){
+    echo "SELECT * FROM permiss where username = '$username' and status = '$status' and it_user = '$it_user'";
+    $notti_user = mysqli_query($this->dbcon,"SELECT * FROM permiss where username = '$username' and status = '$status' and it_user = '$it_user'");
+    return $notti_user;
+  }
+  
   }
 
   

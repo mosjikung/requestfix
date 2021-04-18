@@ -175,6 +175,10 @@
        $checkmgr = mysqli_query($this->dbcon,"SELECT * FROM fix_it where fix_stat != '$fix_stat' and can_fix != '$can_fix'");
        return $checkmgr;
      }
+     public function nottification_user($username,$fix_stat,$ac_name){
+       $notti_use = mysqli_query($this->dbcon,"SELECT * FROM fix_it where username = '$username' and fix_stat = '$fix_stat' and ac_name = '$ac_name'");
+       return $notti_use;
+     }
      
       
     
