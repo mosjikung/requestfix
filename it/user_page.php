@@ -62,7 +62,7 @@ error_reporting(0);
   if($_SESSION['section']=="it"){
   include_once('main_it.php');
   include_once('top_it.php');
-  }elseif($_SESSION['username']=="akkaluk"){
+  }elseif($_SESSION['username']=="akkaluk" or $_SESSION['username']=="tiwakorn"){
   include_once('main_akkaluk.php');
   include_once('top_akkaluk.php');
   }elseif($_SESSION['section']=="hr" && $_SESSION['level_job']=="ผู้จัดการ"){

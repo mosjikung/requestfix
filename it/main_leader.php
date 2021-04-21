@@ -37,32 +37,8 @@
         <!-- Divider -->
         <hr class="my-3">
         <!-- Heading -->
-        <h6 class="navbar-heading p-0 text-muted">
-          <span class="docs-normal">แจ้งซ่อมฝ่ายซ่อมบำรุง</span>
-        </h6>
-        <!-- Navigation -->
-        <ul class="navbar-nav mb-md-3">
-          <li class="nav-item">
-            <a class="nav-link" href="re_ma.php">
-              <i class="ni ni-spaceship"></i>
-              <span class="nav-link-text">ใบแจ้งซ่อมฝ่ายซ่อมบำรุง</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="end_work_u_ma.php">
-              <i class="ni ni-palette"></i>
-              <span class="nav-link-text">รายการรอปิดงานฝ่ายซ่อมบำรุง</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="checkstatus_ma.php">
-              <i class="ni ni-ui-04"></i>
-              <span class="nav-link-text">เช๊คสถานะแจ้งซ่อมบำรุง</span>
-            </a>
-          </li>
-          
-          
-        </ul>
+      
+        
       </div>
     </div>
   </div>

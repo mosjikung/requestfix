@@ -1,9 +1,15 @@
 <?php
 session_start();
+
 error_reporting(0);
-  if($_SESSION['username']==""){
-  echo "<script>window.location.href='index.php'</script>";
+  if($_SESSION['username']==''){
+  echo "<script>window.location.href='../index.php'</script>";
   }
+  if($_SESSION['section']!=='it'){
+    echo "<script>alert('คุณไม่มีสิทธิ์เข้าใช้งานหน้านี้');</script>";
+    echo "<script>window.location.href='../index.php'</script>";
+  }
+
 
 include_once('function.php');
 $showlist = new DB_CON();

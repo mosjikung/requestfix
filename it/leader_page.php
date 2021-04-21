@@ -68,12 +68,15 @@ error_reporting(0);
   if($_SESSION['section']=="it"){
   include_once('main_it.php');
   include_once('top_it.php');
-  }elseif($_SESSION['username']=="akkaluk"){
+  }elseif($_SESSION['username']=="akkaluk" || $_SESSION['username']=="tiwakorn"){
   include_once('main_akkaluk.php');
   include_once('top_akkaluk.php');
   }elseif($_SESSION['section']=="hr" && $_SESSION['level_job']=="ผู้จัดการ"){
   include_once('main_hr_mgr.php');
   include_once('top_hr_mgr.php');
+  }elseif($_SESSION['level_job']=="ผู้จัดการ"){
+  include_once('main_mgr.php');
+  include_once('top_mgr.php');
   }elseif($_SESSION['section']=="hr"){
   include_once('main_hr.php');
   include_once('top_hr.php');
@@ -206,121 +209,7 @@ error_reporting(0);
           </div>
           
         </div>
-        <div class="col-xl-12">
-          <div class="card">
-            <div class="card-header border-0">
-              <div class="row align-items-center">
-                <div class="col">
-                  <h3 class="mb-0">List แจ้งซ่อมฝ่ายซ่อมบำรุง</h3>
-                </div>
-
-              </div>
-            </div>
-            <div class="table-responsive">
-              <form name="1" method="post">
-              <!-- Projects table -->
-              <table class="table align-items-center table-flush">
-                <thead class="thead-light">
-                  <tr>
-                    <th scope="col">ผู้แจ้ง</th>
-                    <th scope="col">ประเภท</th>
-                    <th scope="col">ปัญหา</th>
-                    <th scope="col">รายละเอียดงาน</th>
-                  </tr>
-                </thead>
-                <tbody>
-
-                  <?php
-
-                  while($objResult3 = mysqli_fetch_array($result3)){
-
-
-                   ?>
-                  <tr>
-
-                    <td >  <?php echo $objResult3['username']; ?></td>
-
-
-                      <td ><?php echo $objResult3['about']; ?></td>
-
-
-                      <td ><?php echo $objResult3['problem']; ?></td>
-
-
-
-                    <td><a href="fullview_end_work.php?case_id=<?php echo $objResult3['case_id']; ?>"class="btn btn-success">ดูรายละเอียด</a></td>
-                    
-                </form>
-                  </tr>
-                  <?php
-                  }
-                  ?>
-                  <tr>
-
-
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-          
-        </div>
-        <div class="col-xl-12">
-          <div class="card">
-            <div class="card-header border-0">
-              <div class="row align-items-center">
-                <div class="col">
-                  <h3 class="mb-0">List แจ้งซ่อมที่เสร็จแล้ว</h3>
-                </div>
-
-              </div>
-            </div>
-            <div class="table-responsive">
-              <form name="1" method="post">
-              <!-- Projects table -->
-              <table class="table align-items-center table-flush">
-                <thead class="thead-light">
-                  <tr>
-                    <th scope="col">ผู้แจ้ง</th>
-                    <th scope="col">ประเภท</th>
-                    <th scope="col">ปัญหา</th>
-                    <th scope="col">รายละเอียดงาน</th>
-                  </tr>
-                </thead>
-                <tbody>
-
-                  <?php
-
-                  while($objResult4 = mysqli_fetch_array($result4)){
-
-
-                   ?>
-                  <tr>
-
-                    <td >  <?php echo $objResult4['username']; ?></td>
-
-
-                      <td ><?php echo $objResult4['about']; ?></td>
-
-
-                      <td ><?php echo $objResult4['problem']; ?></td>
-
-
-
-                    <td><a href="fullview_end_work.php?case_id=<?php echo $objResult4['case_id']; ?>"class="btn btn-success">ดูรายละเอียด</a></td>
-                    
-                </form>
-                  </tr>
-                  <?php
-                  }
-                  ?>
-                  <tr>
-
-
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+       
           </div>
           
         </div>
