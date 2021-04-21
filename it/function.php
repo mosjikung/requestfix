@@ -179,6 +179,13 @@
        $notti_use = mysqli_query($this->dbcon,"SELECT * FROM fix_it where username = '$username' and fix_stat = '$fix_stat' and ac_name = '$ac_name'");
        return $notti_use;
      }
+
+     public function cal_score($crt_date,$crt_date2){
+       
+      $calscore = mysqli_query($this->dbcon,"SELECT * FROM question where crt_date between '$crt_date' and '$crt_date2'");
+      return $calscore;
+
+    }
      
       
     

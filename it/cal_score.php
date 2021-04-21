@@ -10,15 +10,19 @@ if($_POST['strdate'] !== "" && $_POST['lastdate']!== ""){
     $result = $cal_score_date->calscore($crt_date,$crt_date2);
     
 }
-   // $objResult2 = mysqli_num_rows($result)
+    $objResult2 = mysqli_num_rows($result);
     while($objResult = mysqli_fetch_array($result)){
         $objResult['summary_score'];
         $score = $objResult['summary_score'] + $score;
        
     }
-
-   // $cal_score = $score/$objResult2;
-    //echo $cal_score;
+    if($objResult2!='0'){
+   $max_score = 25*$objResult2;
+   
+   $cal_score = ($score*100)/$max_score;
+    }
+   
+   
 }
  ?>
 <!DOCTYPE html>
@@ -140,7 +144,7 @@ if($_POST['strdate'] !== "" && $_POST['lastdate']!== ""){
                   <div class = "row">
                   <div class = "col-lg-12">
                   <div class = "form-group">
-                  <input type="text" class="form-control" name="cal_score" id="cal_score"  value="<?php echo number_format($score,2,'.',''); ?>">
+                  <input type="text" class="form-control" name="cal_score" id="cal_score"  value="<?php echo number_format($cal_score,2,'.',''); ?>">
                   </div>
                   </div>
                   </div>

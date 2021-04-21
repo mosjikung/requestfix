@@ -33,25 +33,6 @@ session_start();
                 </form>
               
            <?php
-      }elseif($_SESSION['level']=='user'){
-        ?>
-          <div class="wrapper">
-          <div class="container">
-            <h1>เลือกหัวข้อใช้บริการ</h1>
-            
-
-                <form method="get" action="it/re_action.php">
-                <button type="submit">ขอสิทธิ์การใช้งาน</button>
-                </form>
-                <form method="get" action="it/re_fix.php">
-                <button type="submit" name="computer" id="computer" value="ใบแจ้งซ่อม">ใบแจ้งซ่อม</button>
-                </form> <form method="get" action="it/user_page.php">
-                <button type="submit" name="user" id="user">Main Page</button>
-                </form>
-      
-    
-      <?php
-      
       }elseif($_SESSION['level']=='leader'){
         ?>
           <div class="wrapper">
@@ -106,6 +87,25 @@ session_start();
       
     
       <?php
+      }else{
+      ?>
+          <div class="wrapper">
+          <div class="container">
+            <h1>เลือกหัวข้อใช้บริการ</h1>
+            
+
+                <form method="get" action="it/re_action.php">
+                <button type="submit">ขอสิทธิ์การใช้งาน</button>
+                </form>
+                <form method="get" action="it/re_fix.php">
+                <button type="submit" name="computer" id="computer" value="ใบแจ้งซ่อม">ใบแจ้งซ่อม</button>
+                </form> <form method="get" action="it/user_page.php">
+                <button type="submit" name="user" id="user">Main Page</button>
+                </form>
+      
+    
+      <?php
+      
       }
            ?>
               <ul class="bg-bubbles">

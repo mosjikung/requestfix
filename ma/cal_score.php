@@ -9,18 +9,22 @@ if($_POST['strdate'] !== "" && $_POST['lastdate']!== ""){
     $crt_date2 = $_POST['lastdate'];
     $result = $cal_score_date->calscore($crt_date,$crt_date2);
     
+  }
+  $objResult2 = mysqli_num_rows($result);
+  while($objResult = mysqli_fetch_array($result)){
+      $objResult['summary_score'];
+      $score = $objResult['summary_score'] + $score;
+     
+  }
+  if($objResult2!='0'){
+ $max_score = 25*$objResult2;
+ 
+ $cal_score = ($score*100)/$max_score;
+  }
+ 
+ 
 }
-   // $objResult2 = mysqli_num_rows($result)
-    while($objResult = mysqli_fetch_array($result)){
-        $objResult['summary_score'];
-        $score = $objResult['summary_score'] + $score;
-       
-    }
-
-   // $cal_score = $score/$objResult2;
-    //echo $cal_score;
-}
- ?>
+?>
 <!DOCTYPE html>
 <html>
 
