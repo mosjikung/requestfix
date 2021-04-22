@@ -51,15 +51,15 @@ if($_POST['strdate'] !== "" && $_POST['lastdate']!== ""){
   if($_SESSION['section']=="it"){
   include_once('main_it.php');
   include_once('top_it.php');
-  }elseif($_SESSION['username']=="akkaluk"){
+  }elseif($_SESSION['username']=="akkaluk" || $_SESSION['username']=="tiwakorn"){
   include_once('main_akkaluk.php');
   include_once('top_akkaluk.php');
   }elseif($_SESSION['section']=="hr" && $_SESSION['level_job']=="ผู้จัดการ"){
   include_once('main_hr_mgr.php');
   include_once('top_hr_mgr.php');
-  }elseif($_SESSION['section']=="hr"){
-  include_once('main_ma.php');
-  include_once('top_ma.php');
+  }elseif($_SESSION['level_job']=="ผู้จัดการ"){
+  include_once('main_mgr.php');
+  include_once('top_mgr.php');
   }elseif($_SESSION['section']=="hr"){
   include_once('main_hr.php');
   include_once('top_hr.php');
