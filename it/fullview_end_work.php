@@ -21,7 +21,7 @@ $user_app = 'approve';
 
   if($result2){
     echo "<script>alert('บันทึกสำเร็จ!!')</script>";
-    echo "<script>window.location.href='end_work_u.php?case_id=$case_id'</script>";
+    echo "<script>window.location.href='after_question.php?case_id=$case_id'</script>";
   }else{
     echo "<script>alert('เกิดข้อผิดพลาด!!')</script>";
     echo "<script>window.location.href='end_work_u.php'</script>";

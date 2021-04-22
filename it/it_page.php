@@ -151,6 +151,7 @@ $result5 = $selectjobth->selectjob($per_id,$status,$it_user);
                     <th class="text-center" scope="col">ผู้แจ้ง</th>
                     <th class="text-center" scope="col">ประเภท</th>
                     <th class="text-center" scope="col">ปัญหา</th>
+                    <th class="text-center" scope="col">วันที่แจ้ง</th>
                     <th class="text-center" scope="col">Acept งาน</th>
                   </tr>
                 </thead>
@@ -171,6 +172,9 @@ $result5 = $selectjobth->selectjob($per_id,$status,$it_user);
 
 
                       <td class="text-center"><?php echo $objResult['problem']; ?></td>
+
+                      
+                      <td class="text-center"><?php echo $objResult['crt_date']; ?></td>
 
 
 
@@ -254,6 +258,7 @@ $result5 = $selectjobth->selectjob($per_id,$status,$it_user);
           </div>
         </div>
         </div>
+       
         
       <!-- Footer -->
       <footer class="footer pt-0">

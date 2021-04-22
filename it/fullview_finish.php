@@ -21,7 +21,7 @@ if(isset($_POST['finish'])){
 $resultfinish = $updatefinish->finish($case_id,$fix_stat,$end_date,$end_time);
   if($resultfinish){
     echo "<script>alert('ปิดงานสำเร็จ!!');</script>";
-    echo "<script>window.location.href='after_question.php?case_id=$case_id'</script>";
+    echo "<script>window.location.href='finish_page.php'</script>";
   }else{
     echo "<script>alert('พบข้อผิดพลาด!!');</script>";
     echo "<script>window.location.href='finish_page.php'</script>";
