@@ -70,9 +70,9 @@
           where case_id = '$case_id'");
           return $updatexx;
         }
-        public function canfixit($username,$fix_stat){
-
-            $showlist = mysqli_query($this->dbcon,"SELECT * FROM fix_it where ac_name = '$username' and fix_stat = '$fix_stat'");
+        public function canfixit($ac_name,$fix_stat,$can_fix,$mgr_app){
+          echo "SELECT * FROM fix_it where ac_name = '$ac_name' and fix_stat = '$fix_stat' and can_fix ='$can_fix' or (ac_name = '$ac_name',can_fix != '$can_fix' and mgr_app !='$mgr_app')";
+             $showlist = mysqli_query($this->dbcon,"SELECT * FROM fix_it where ac_name = '$ac_name' and fix_stat = '$fix_stat' and can_fix ='$can_fix' or (ac_name = '$ac_name' and can_fix != '$can_fix' and mgr_app !='$mgr_app')");
             return $showlist;
         }
 
@@ -114,7 +114,7 @@
       }
       
       public function nottification($username,$fix_stat,$user_app){
-       echo  "SELECT * FROM fix_it where username = '$username' and fix_stat = '$fix_stat' and user_app = '$user_app'";
+        "SELECT * FROM fix_it where username = '$username' and fix_stat = '$fix_stat' and user_app = '$user_app'";
         $allucase = mysqli_query($this->dbcon,"SELECT * FROM fix_it where username = '$username' and fix_stat != '$fix_stat' and user_app = '$user_app'");
         return $allucase;
       }

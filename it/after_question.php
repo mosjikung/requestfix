@@ -24,10 +24,18 @@ if (isset($_POST['insert'])) {
 
 
     $sql = $insertdata->insert_suggestion($username,$company,$section,$q1,$q2,$q3,$q4,$q5,$sugguestion,$case_id,$per_id,$crt_date,$summary_score);
-    
-
+    if($sql){
+      echo "<script>alert('ปิดงานสำเร็จ!!');</script>";
+      echo "<script>window.location.href='end_work_u.php'</script>";
+    }else{
+      echo "<script>alert('พบข้อผิดพลาด!!');</script>";
+      echo "<script>window.location.href='end_work_u.php'</script>";
+    }
    
 }
+
+
+
  ?>
  
 <!DOCTYPE html>

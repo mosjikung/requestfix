@@ -6,9 +6,11 @@ session_start();
 
 include_once('function.php');
 $showlist = new DB_CON();
-$username = $_SESSION['username'];
+$ac_name = $_SESSION['username'];
 $fix_stat = 'working';
-$result = $showlist->canfixit($username,$fix_stat);
+$can_fix = 'ซ่อมได้';
+$mgr_app = '';
+$result = $showlist->canfixit($ac_name,$fix_stat,$can_fix,$mgr_app);
 
  ?>
 
@@ -65,18 +67,7 @@ $result = $showlist->canfixit($username,$fix_stat);
   
     <!-- Header -->
     <!-- Header -->
-    <div class="header bg-primary pb-6">
-      <div class="container-fluid">
-        <div class="header-body">
-          <div class="row align-items-center py-4">
 
-
-          </div>
-          <!-- Card stats -->
-
-        </div>
-      </div>
-    </div>
     <!-- Page content -->
     
       <div class="row">
@@ -99,6 +90,7 @@ $result = $showlist->canfixit($username,$fix_stat);
                     <th class="text-center" scope="col">ผู้แจ้ง</th>
                     <th class="text-center" scope="col">ประเภท</th>
                     <th class="text-center" scope="col">ปัญหา</th>
+                    <th class="text-center" scope="col">วันที่แจ้งปัญหา</th>
                     <th class="text-center"scope="col">Acept งาน</th>
                   </tr>
                 </thead>
@@ -119,6 +111,8 @@ $result = $showlist->canfixit($username,$fix_stat);
 
 
                       <td class="text-center"><?php echo $objResult['problem']; ?></td>
+
+                      <td class="text-center"><?php echo $objResult['crt_time']; ?></td>
 
 
 
