@@ -22,6 +22,13 @@ $result = $showlist->alllist($fix_stat,$fix_stat2,$mgr_app);
       $fix_stat = "working";
       $case_id = $_GET['case_id'];
      $sql = $updatedata->update($ac_name,$fix_stat,$case_id);
+      if($sql){
+        echo "<script>alert('บันทึกสำเร็จ!');</script>";
+        echo "<script>window.location.href='../ma/ma_page.php'</script>";
+      } else {
+        echo "<script>alert('เกิดข้อผิดพลาด!');</script>";
+        echo "<script>window.location.href='../ma/ma_page.php'</script>";
+      }
    }
 
  ?>

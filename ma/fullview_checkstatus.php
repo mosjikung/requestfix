@@ -1,6 +1,6 @@
 <?php
 session_start();
-error_reporting(0);
+header("Cache-Control: max-age=0; no-cache; no-store; must-revalidate");
 include_once('functions.php');
 $detail = new DB_CON();
 
@@ -28,8 +28,6 @@ $resultfinish = $updatefinish->finish($case_id,$fix_stat,$end_date,$end_time);
     echo "<script>window.location.href='finish_page.php'</script>";
   }
 }
-
-
  ?>
    <?php
   include_once('functions.php');
@@ -38,6 +36,7 @@ $resultfinish = $updatefinish->finish($case_id,$fix_stat,$end_date,$end_time);
   $fix_stat = '';
   $result3 = $notuser->nottification_user($username,$fix_stat);
  ?>
+ 
 <!DOCTYPE html>
 <html>
 
@@ -186,7 +185,7 @@ $resultfinish = $updatefinish->finish($case_id,$fix_stat,$end_date,$end_time);
                   </div>
 
                 </div>
-                <center><button type="submit" name="update" class="btn btn-success">update</button></center>
+                <center><button type="button" class="btn btn-success" value="Go Back" onclick="history.back(-1)">Back</button></center>
               </form>
             <?php
 
@@ -249,7 +248,10 @@ $resultfinish = $updatefinish->finish($case_id,$fix_stat,$end_date,$end_time);
               
 
             </div>
-            <center><button type="submit" name="finish" onClick="return confirm('คุณต้องการปิดงานนี้หรือไม่?');" class="btn btn-success">กดเพื่อปิดงาน</button></center>
+            <center>
+                <button type="button" class="btn btn-success" value="Go Back" onclick="history.back(-1)">Back</button>
+             
+                </center>
           </form>
             </div>
           </div>

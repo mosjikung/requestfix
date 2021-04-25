@@ -24,7 +24,7 @@
          
               public function insertfixma($username,$section,$about,$problem,$number,$address,$notice,$crt_date,$crt_time){
                 echo "INSERT INTO fix_ma (username,section,about,problem,number,address,notice,crt_time,crt_date) values ('$username','$section','$about','$problem','$number','$address','$notice','$crt_date','$crt_time')";
-                 $fixma = mysqli_query($this->dbcon,"INSERT INTO fix_ma (username,section,about,problem,number,address,notice,crt_time,crt_date) values ('$username','$section','$about','$problem','$number','$address','$notice','$crt_date','$crt_time')");
+                 $fixma = mysqli_query($this->dbcons,"INSERT INTO fix_ma (username,section,about,problem,number,address,notice,crt_time,crt_date) values ('$username','$section','$about','$problem','$number','$address','$notice','$crt_date','$crt_time')");
                  return $fixma;
                }
                

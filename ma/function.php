@@ -32,7 +32,7 @@
         }
 
         public function insertfixit($username,$section,$about,$problem,$number,$notice,$crt_date,$crt_time,$status){
-         "INSERT INTO fix_it (username,section,about,problem,number,notice,crt_time,crt_date,status) values ('$username','$section','$about','$problem','$number','$notice','$crt_date','$crt_time','$status')";
+         echo "INSERT INTO fix_it (username,section,about,problem,number,notice,crt_time,crt_date,status) values ('$username','$section','$about','$problem','$number','$notice','$crt_date','$crt_time','$status')";
           $fixit = mysqli_query($this->dbcon,"INSERT INTO fix_it (username,section,about,problem,number,notice,crt_time,crt_date,status) values ('$username','$section','$about','$problem','$number','$notice','$crt_date','$crt_time','$status')");
           return $fixit;
         }
