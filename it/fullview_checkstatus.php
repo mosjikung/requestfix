@@ -1,7 +1,6 @@
 <?php
 session_start();
 header("Cache-Control: max-age=0; no-cache; no-store; must-revalidate");
-
 include_once('function.php');
 $detail = new DB_CON();
 
@@ -23,7 +22,7 @@ if(isset($_POST['finish'])){
 $resultfinish = $updatefinish->finish($case_id,$fix_stat,$end_date,$end_time);
   if($resultfinish){
     echo "<script>alert('ปิดงานสำเร็จ!!');</script>";
-    echo "<script>window.location.href='after_question.php?case_id=$case_id'</script>";
+    echo "<script>window.location.href='finish_page.php'</script>";
   }else{
     echo "<script>alert('พบข้อผิดพลาด!!');</script>";
     echo "<script>window.location.href='finish_page.php'</script>";
@@ -32,22 +31,21 @@ $resultfinish = $updatefinish->finish($case_id,$fix_stat,$end_date,$end_time);
 
 
  ?>
-   <?php
-  include_once('function.php');
-  $showmgrs = new DB_CON();
-  $fix_stat =  'working';
-  $can_fix = 'ซ่อมได้';
-  $mgr_app = '';
-  $result3 = $showmgrs->nottification_mgr($can_fix,$fix_stat,$mgr_app);
-  ?>
- 
+  <?php
+  include_once ('function.php');
+  $user_show_list2 = new DB_CON();
+  $username = $_SESSION['username'];
+  $fix_stat = 'working';
+  $fix_stat2 = '';
+  $user_app = '';
+  $result3 = $user_show_list2->usershowlist($username,$user_app,$fix_stat,$fix_stat2);
+ ?>
+
 <!DOCTYPE html>
 <html>
 
 <head>
   <meta charset="utf-8">
-  
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
   <meta name="author" content="Creative Tim">
@@ -61,11 +59,6 @@ $resultfinish = $updatefinish->finish($case_id,$fix_stat,$end_date,$end_time);
   <link rel="stylesheet" href="assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
   <!-- Argon CSS -->
   <link rel="stylesheet" href="stable.css" type="text/css">
-  <script>
-function goBack() {
-  window.history.back()
-}
-</script>
 
 </head>
 
@@ -259,10 +252,14 @@ function goBack() {
                 <label>สถานะ  :<?php echo $objResult['fix_stat'];?></label>
               </div>
               
- 
+              
 
             </div>
-            <center><input type="button" class="btn btn-success" value="Back" onclick="goBack()"></center>
+            <center>
+                <button type="button" class="btn btn-success" value="Go Back" onclick="history.back(-1)">Back</button>
+             
+                </center>
+           
           </form>
             </div>
           </div>

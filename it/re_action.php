@@ -40,6 +40,7 @@ if(isset($_POST['insert'])){
   $per_wr1,$per_mo1,$file2,$per_r2,$per_wr2,$per_mo2,$file3,$per_r3,$per_wr3,$per_mo3,$file4,$per_r4,$per_wr4
   ,$per_mo4,$leader1,$strdate,$crt_time);
  if($result){
+   include_once('notiline_action.php');
    echo "<script>alert('บันทึกสำเร็จ')</script>";
    echo "<script>window.location.href='re_action.php'</script>";
  }else{

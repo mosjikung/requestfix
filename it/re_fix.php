@@ -24,10 +24,11 @@ if (isset($_POST['insert'])) {
    
 
     if ($sql) {
-      echo "<script>alert('Record Inserted Successfully!');</script>";
+      include_once('notiline.php');
+      echo "<script>alert('บันทึกสำเร็จ!');</script>";
       echo "<script>window.location.href='../it/re_fix.php'</script>";
     } else {
-      echo "<script>alert('Something went wrong! Please try again!');</script>";
+      echo "<script>alert('เกิดข้อผิดพลาด!');</script>";
      echo "<script>window.location.href='../it/re_fix.php'</script>";
    }
     }else{
@@ -41,6 +42,7 @@ if (isset($_POST['insert'])) {
     
         $sql = $insertdata->insertfixit($username, $section, $about, $problem, $number,$notice,$crt_date,$crt_time,$status,$last_update,$who_update);
         if ($sql) {
+          include_once('notiline.php');
           echo "<script>alert('Record Inserted Successfully!');</script>";
           echo "<script>window.location.href='../it/re_fix.php'</script>";
         } else {
