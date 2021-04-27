@@ -37,14 +37,14 @@
   }
   
   public function selectjob($per_id,$status,$it_user){
-      echo "UPDATE permiss SET status = '$status',it_user = '$it_user' where per_id = '$per_id'";
+       "UPDATE permiss SET status = '$status',it_user = '$it_user' where per_id = '$per_id'";
       $selectthisjob = mysqli_query($this->dbcon,"UPDATE permiss SET status = '$status',it_user = '$it_user' where per_id = '$per_id'");
       return $selectthisjob;
   }
 
   public function leaderapp($status,$leader1,$leader_app){
 
-    echo "SELECT * FROM permiss where status = '$status' and leader1 = '$leader1' and leader_app = '$leader_app'";
+    "SELECT * FROM permiss where status = '$status' and leader1 = '$leader1' and leader_app = '$leader_app'";
     $leader_app = mysqli_query($this->dbcon,"SELECT * FROM permiss where status = '$status' and leader1 = '$leader1' and leader_app = '$leader_app'");
     return $leader_app;
   }
@@ -59,7 +59,7 @@
   $per_wr1,$per_mo1,$file2,$per_r2,$per_wr2,$per_mo2,$file3,$per_r3,$per_wr3,$per_mo3,$file4,$per_r4,$per_wr4
   ,$per_mo4,$leader_app,$strdate){
   
-    echo "UPDATE permiss SET action = '$action' , password = '$password' , email = '$email' , emailex = '$emailex', 
+     "UPDATE permiss SET action = '$action' , password = '$password' , email = '$email' , emailex = '$emailex', 
     file1 = '$file1' , per_r1 = '$per_r1' , per_wr1 = '$per_wr1' , per_mo1 = '$per_mo1' , file2 = '$file2' , per_r2 = '$per_r2' , per_wr2 = '$per_wr2' , per_mo2 = '$per_mo2',
     file3 = '$file3' , per_r3 = '$per_r3' , per_wr3 = '$per_wr3' , per_mo3 = '$per_mo3' , file4 = '$file4' , per_r4 = '$per_r4' , per_wr4 = '$per_wr4' , per_mo4 = '$per_mo4',
     leader_app = '$leader_app' , strdate = '$strdate' where per_id = '$per_id'";
@@ -84,7 +84,7 @@
   public function insert_suggestion($username,$company,$section,$q1,$q2,$q3,$q4,$q5,$q6,$sugguestion,$about,$about2,$crt_date){
     
 
-    echo "INSERT INTO question (username,company,section,q1,q2,q3,q4,q5,q6,sugguestion,about,about2,crt_date) value ('$username','$company'
+    "INSERT INTO question (username,company,section,q1,q2,q3,q4,q5,q6,sugguestion,about,about2,crt_date) value ('$username','$company'
     ,'$section','$q1','$q2','$q3','$q4','$q5','$q6','$case_id','$per_id','$sugguestion','$crt_date')";
 
     $in_sug = mysqli_query($this->dbcon,"INSERT INTO question (username,company,section,q1,q2,q3,q4,q5,q6,sugguestion,about,about2,crt_date) value ('$username','$company'
