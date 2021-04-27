@@ -16,7 +16,7 @@
   ,$per_mo4,$leader1,$strdate,$crt_time){ 
 
     
-    echo "INSERT INTO permiss (username,company,section,action,name,surname,account_id,password,email,emailex,
+     "INSERT INTO permiss (username,company,section,action,name,surname,account_id,password,email,emailex,
     file1,per_r1,per_wr1,per_mo1,file2,per_r2,per_wr2,per_mo2,file3,per_r3,per_wr3,per_mo3,file4,per_r4,per_wr4,per_mo4,leader1,strdate,crt_time) values ('$username','$company','$section','$action','$name','$surname','$account_id','$password','$email','$emailex','$file1','$per_r1',
   '$per_wr1','$per_mo1','$file2','$per_r2','$per_wr2','$per_mo2','$file3','$per_r3','$per_wr3','$per_mo3','$file4','$per_r4','$per_wr4'
   ,'$per_mo4',$leader1,'$strdate','$crt_time')";
@@ -70,7 +70,7 @@
   leader_app = '$leader_app' , strdate = '$strdate' where per_id = '$per_id'");
 }
   public function approvemgr($mgr_app){
-   echo  "SELECT * FROM permiss where mgr_app = '$mgr_app'";
+    "SELECT * FROM permiss where mgr_app = '$mgr_app'";
     $approve = mysqli_query($this->dbcon,"SELECT * FROM permiss where mgr_app = '$mgr_app'");
     return $approve;
 
@@ -104,7 +104,8 @@
   }
   
   public function nottification_user($username,$status,$it_user){
-    echo "SELECT * FROM permiss where username = '$username' and status = '$status' and it_user = '$it_user'";
+    
+     "SELECT * FROM permiss where username = '$username' and status = '$status' and it_user = '$it_user'";
     $notti_user = mysqli_query($this->dbcon,"SELECT * FROM permiss where username = '$username' and status = '$status' and it_user = '$it_user'");
     return $notti_user;
   }

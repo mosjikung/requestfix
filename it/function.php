@@ -165,7 +165,7 @@
      }
 
      public function showreport($fix_stat,$user_app,$case_id){
-       "SELECT * FROM fix_it where fix_stat = '$fix_stat' and user_app = '$user_app' case_id = '$case_id'";
+       echo "SELECT * FROM fix_it where fix_stat = '$fix_stat' and user_app != '$user_app' and case_id = '$case_id'";
        $show_report = mysqli_query($this->dbcon,"SELECT * FROM fix_it where fix_stat = '$fix_stat' and user_app != '$user_app' and case_id = '$case_id'");
        return $show_report;
      }

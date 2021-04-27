@@ -11,19 +11,19 @@
         }
 
             public function user_show_list_ma($username,$user_app,$fix_stat,$fix_stat2){
-                echo "SELECT * FROM fix_ma where username = '$username' and user_app ='$user_app' and fix_stat = '$fix_stat' or fix_stat = '$fix_stat2";
+                "SELECT * FROM fix_ma where username = '$username' and user_app ='$user_app' and fix_stat = '$fix_stat' or fix_stat = '$fix_stat2";
                  $user_show = mysqli_query($this->dbcons,"SELECT * FROM fix_ma where username = '$username' and user_app ='$user_app' and fix_stat = '$fix_stat' or fix_stat = '$fix_stat2'");
                 return $user_show;
                }
 
             public function show_end_ma($fix_stat,$username,$user_app){
-                echo "SELECT * FROM fix_ma where fix_stat = '$fix_stat and username = '$username'";
+                "SELECT * FROM fix_ma where fix_stat = '$fix_stat and username = '$username'";
                $showend = mysqli_query($this->dbcons,"SELECT * FROM fix_ma where fix_stat = '$fix_stat' and username = '$username' and user_app = '$user_app'");
                 return $showend;
               }
          
               public function insertfixma($username,$section,$about,$problem,$number,$address,$notice,$crt_date,$crt_time){
-                echo "INSERT INTO fix_ma (username,section,about,problem,number,address,notice,crt_time,crt_date) values ('$username','$section','$about','$problem','$number','$address','$notice','$crt_date','$crt_time')";
+                "INSERT INTO fix_ma (username,section,about,problem,number,address,notice,crt_time,crt_date) values ('$username','$section','$about','$problem','$number','$address','$notice','$crt_date','$crt_time')";
                  $fixma = mysqli_query($this->dbcon,"INSERT INTO fix_ma (username,section,about,problem,number,address,notice,crt_time,crt_date) values ('$username','$section','$about','$problem','$number','$address','$notice','$crt_date','$crt_time')");
                  return $fixma;
                }
