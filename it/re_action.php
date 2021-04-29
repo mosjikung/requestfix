@@ -81,6 +81,7 @@ if(isset($_POST['insert'])){
 
 </head>
 
+
 <body> 
 <?php
   if($_SESSION['section']=="it"){
@@ -160,7 +161,7 @@ if(isset($_POST['insert'])){
                   <div class="row">
                     <div class="col-lg-6">
                     <div class="form-group">
-                    <select class="form-control" name="action" id="action">
+                    <select class="form-control" name="action" id="action" onchange= "myfunction()">
                           <option class="hidden"  value=""  selected disabled>Request Action</option>
 
                           <option value="Add New User">Add New User</option>
@@ -170,6 +171,19 @@ if(isset($_POST['insert'])){
 
 
                       </select>
+                      <script>
+                    function myfunction(){
+                        var y = document.getElementById("action").value;
+                        console.log(y);
+                        if(y=="Add New User"){
+                          document.getElementById("file1").placeholder="Public";
+                          document.getElementById("file2").placeholder="ISO V2000";
+                        }else{
+                          document.getElementById("file1").placeholder="1.";
+                          document.getElementById("file2").placeholder="2.";
+                        }
+                    }
+ </script>
                     </div>
                 </div>
                     <div class="col-lg-6">
