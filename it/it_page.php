@@ -26,6 +26,7 @@ $result = $showlist->alllist($fix_stat,$fix_stat2,$mgr_app);
      date_default_timezone_set("Asia/Bangkok");
      $last_update = date('Y-m-d');
      $who_update = $_SESSION['username'];
+     $time_update = date('H:i:s');
 
      if(isset($_GET['update'])){
       $ac_name = $_SESSION['username'];
@@ -34,6 +35,7 @@ $result = $showlist->alllist($fix_stat,$fix_stat2,$mgr_app);
       
      $sql = $updatedata->update($ac_name,$fix_stat,$last_update,$who_update,$case_id);
      if($sql){
+       include_once('email_2.php');
       echo "<script>alert('บันทึกสำเร็จ')</script>";
       echo "<script>window.location.href='it_page.php'</script>";
     }else{
@@ -148,6 +150,7 @@ $result5 = $selectjobth->selectjob($per_id,$status,$it_user);
               <table class="table align-items-center table-flush">
                 <thead class="thead-light">
                   <tr>
+                  <th class="text-center" scope="col">ID</th>
                     <th class="text-center" scope="col">ผู้แจ้ง</th>
                     <th class="text-center" scope="col">ประเภท</th>
                     <th class="text-center" scope="col">ปัญหา</th>
@@ -164,6 +167,7 @@ $result5 = $selectjobth->selectjob($per_id,$status,$it_user);
 
                    ?>
                   <tr>
+                  <td class="text-center"><?php echo $objResult['case_id']; ?></td>
 
                      <td class="text-center"><?php echo $objResult['username']; ?></td>
 

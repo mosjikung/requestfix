@@ -2,14 +2,23 @@
 date_default_timezone_set('Asia/Bangkok');
 $times = date("Y-m-d");
 
- 
+include_once('connect.php');
+$strSQL = "SELECT * FROM fix_it where case_id = '".$case_id."'";
+$objQuery = mysqli_query($objCon,$strSQL);
+$objResult3 = mysqli_fetch_array($objQuery,MYSQLI_ASSOC);
+$username = $objResult3['username'];
+$action = $objResult3['action'];
+$problem =  $objResult3['problem'];
+$address = $objResult3['address'];
+$sendmail1 = 'weerayooth@ntmail.local';
 $sendmail2 = 'akkaluk@ntmail.local';
 $sendmail3 = 'tiwakorn@ntmail.local';
 $request = 'การแจ้งซ่อมของ  '.$username;
 
 
-  $exmail = "From : $username ฝ่าย : $section <br>
-  เรื่อง : $action วันที่ : $crt_time  ปัญหา : $problem <br>
+  $exmail = "Case ID : $case_id ผู้รับผิดชอบ : $ac_name <br>
+  เรื่อง : $action  ปัญหา : $problem <br>
+  วันที่และเวลา : $last_update : $time_update <br>
   สถานที่ : $address <br>
   ตรวจสอบข้อมูลโดยการ login ที่ : <a href='http://192.168.23.6/requestfix'>คลิกที่นี่</a></br>";
 
@@ -48,7 +57,8 @@ $request = 'การแจ้งซ่อมของ  '.$username;
   //Set who the message is to be sent from
   $mail->setFrom('request.admin@ntmail.local', 'Request admin');
   //Set who the message is to be sent to
-  $mail->addAddress($sendmail2,$sendmail2);
+  $mail->addAddress($sendmail1,$sendmail1);
+  $mail->AddCC($sendmail2,$sendmail2);
   $mail->AddCC($sendmail3,$sendmail3);
   //Set the subject line
   $mail->Subject = $request;
@@ -60,6 +70,6 @@ $request = 'การแจ้งซ่อมของ  '.$username;
   if (!$mail->send()) {
    echo "Mailer Error: " . $mail->ErrorInfo;
   } else {
-  include_once('notiline.php');
+  include_once('notiline2.php');
   }
   ?>

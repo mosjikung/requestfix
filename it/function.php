@@ -32,9 +32,11 @@
 
         }
 
-        public function insertfixit($username,$section,$about,$problem,$number,$notice,$crt_date,$crt_time,$status,$last_update,$who_update){
-        "INSERT INTO fix_it (username,section,about,problem,number,notice,crt_time,crt_date,status,last_update,who_update) values ('$username','$section','$about','$problem','$number','$notice','$crt_date','$crt_time','$status','$last_update','$who_update')";
-          $fixit = mysqli_query($this->dbcon,"INSERT INTO fix_it (username,section,about,problem,number,notice,crt_time,crt_date,status,last_update,who_update) values ('$username','$section','$about','$problem','$number','$notice','$crt_date','$crt_time','$status','$last_update','$who_update')");
+        public function insertfixit($username,$section,$about,$problem,$address,$number,$notice,$crt_date,$crt_time,$status,$last_update,$who_update){
+          echo "INSERT INTO fix_it (username,section,about,problem,address,number,notice,crt_time,crt_date,status,last_update,who_update) 
+          values ('$username','$section','$about','$problem','$address','$number','$notice','$crt_date','$crt_time','$status','$last_update','$who_update')";
+          $fixit = mysqli_query($this->dbcon,"INSERT INTO fix_it (username,section,about,problem,address,number,notice,crt_time,crt_date,status,last_update,who_update) 
+          values ('$username','$section','$about','$problem','$address','$number','$notice','$crt_date','$crt_time','$status','$last_update','$who_update')");
           return $fixit;
         }
         public function insertfixit2($username,$section,$about,$problem,$number,$notice,$crt_date,$crt_time,$status){

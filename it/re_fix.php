@@ -17,20 +17,22 @@ if (isset($_POST['insert'])) {
     $problem = $_POST['problem'];
     $number = $_POST['number'];
     $notice = $_POST['notice'];
+    $address = $_POST['address'];
     $status = '0';
 
 
-    $sql = $insertdata->insertfixit($username, $section, $about, $problem, $number,$notice,$crt_date,$crt_time,$status,$last_update,$who_update);
+    $sql = $insertdata->insertfixit($username,$section,$about,$problem,$address,$number,$notice,$crt_date,$crt_time,$status,$last_update,$who_update);
    
 
     if ($sql) {
-      include_once('notiline.php');
+      
+      include_once('email_1.php');
       echo "<script>alert('บันทึกสำเร็จ!');</script>";
       echo "<script>window.location.href='../it/re_fix.php'</script>";
-    } else {
-      echo "<script>alert('เกิดข้อผิดพลาด!');</script>";
-     echo "<script>window.location.href='../it/re_fix.php'</script>";
-   }
+    }else{
+      echo "<script>alert('พบข้อผิดพลาด');</script>";
+      echo "<script>window.location.href='../it/re_fix.php'</script>";
+    }
     }else{
       
         $about = $_POST['other'];
@@ -43,6 +45,7 @@ if (isset($_POST['insert'])) {
         $sql = $insertdata->insertfixit($username, $section, $about, $problem, $number,$notice,$crt_date,$crt_time,$status,$last_update,$who_update);
         if ($sql) {
           include_once('notiline.php');
+          include_once('email_1.php');
           echo "<script>alert('Record Inserted Successfully!');</script>";
           echo "<script>window.location.href='../it/re_fix.php'</script>";
         } else {
@@ -230,10 +233,18 @@ if (isset($_POST['insert'])) {
                     <div class="col-lg-6">
                     <div class="form-group">
 
-<input type="text" id="number" name="number" class="form-control" placeholder="หมายเลขเครื่อง">
-</div>
+                <input type="text" id="number" name="number" class="form-control" placeholder="หมายเลขเครื่อง">
+                </div>
                     </div>
 
+                  </div>
+                  <div class="row">
+                  <div class="col-lg-6">
+                    <div class="form-group">
+
+                  <input type="text" id="address" name="address" class="form-control" placeholder="สถานที่">
+                </div>
+                    </div>
                   </div>
                   <div class="row">
 

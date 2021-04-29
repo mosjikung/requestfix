@@ -1,16 +1,18 @@
 <?php
 session_start();
+echo $_SESSION['username'];
   if($_SESSION['username']==""){
   echo "<script>window.location.href='index.php'</script>";
   }
 
 include_once('function.php');
 $showlist = new DB_CON();
-$username = $_SESSION['username'];
+$ac_name = $_SESSION['username'];
 $fix_stat = 'working';
-$result = $showlist->canfixit($username,$fix_stat);
-
- ?>
+$can_fix = '';
+$mgr_app = '';
+$result = $showlist->canfixit($ac_name,$fix_stat,$can_fix,$mgr_app);
+?>
 
 
 
