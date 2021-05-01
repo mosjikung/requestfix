@@ -12,6 +12,7 @@ $can_fix = 'ซ่อมได้';
 $mgr_app = '';
 $result = $showlist->canfixit($ac_name,$fix_stat,$can_fix,$mgr_app);
 
+
  ?>
 
 

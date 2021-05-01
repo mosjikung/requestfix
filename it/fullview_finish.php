@@ -20,6 +20,7 @@ if(isset($_POST['finish'])){
 
 $resultfinish = $updatefinish->finish($case_id,$fix_stat,$end_date,$end_time);
   if($resultfinish){
+    include_once('email_3.php');
     echo "<script>alert('ปิดงานสำเร็จ!!');</script>";
     echo "<script>window.location.href='finish_page.php'</script>";
   }else{
