@@ -2,7 +2,7 @@
 date_default_timezone_set('Asia/Bangkok');
 $times = date("Y-m-d");
 
- 
+
 $sendmail2 = 'akkaluk@ntmail.local';
 $sendmail3 = 'tiwakorn@ntmail.local';
 $request = 'การแจ้งซ่อมของ  '.$username;
