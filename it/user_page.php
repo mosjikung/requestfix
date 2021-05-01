@@ -101,6 +101,7 @@ error_reporting(0);
                     <th class="text-center" scope="col">ผู้แจ้ง</th>
                     <th class="text-center" scope="col">ประเภท</th>
                     <th class="text-center" scope="col">ปัญหา</th>
+                    <th class="text-center" scope="col">วันที่</th>
                     <th class="text-center" scope="col">รายเอียดงาน</th>
                   </tr>
                 </thead>
@@ -122,7 +123,7 @@ error_reporting(0);
 
                       <td class="text-center"><?php echo $objResult['problem']; ?></td>
 
-
+                      <td class="text-center"><?php echo $objResult['crt_date']; ?></td>
 
                     <td class="text-center"><a href="fullview_finish.php?case_id=<?php echo $objResult['case_id']; ?>"  class="btn btn-success">รายละเอียดงาน</a></td>
                     
@@ -156,10 +157,11 @@ error_reporting(0);
               <table class="table align-items-center table-flush">
                 <thead class="thead-light">
                   <tr>
-                    <th scope="col">ผู้แจ้ง</th>
-                    <th scope="col">ประเภท</th>
-                    <th scope="col">ปัญหา</th>
-                    <th scope="col">รายละเอียดงาน</th>
+                    <th class="text-center" scope="col">ผู้แจ้ง</th>
+                    <th class="text-center" scope="col">ประเภท</th>
+                    <th class="text-center" scope="col">ปัญหา</th>
+                    <th class="text-center" scope="col">วันที่</th>
+                    <th class="text-center" scope="col">รายละเอียดงาน</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -172,17 +174,17 @@ error_reporting(0);
                    ?>
                   <tr>
 
-                    <td >  <?php echo $objResult2['username']; ?></td>
+                    <td  class="text-center">  <?php echo $objResult2['username']; ?></td>
 
 
-                      <td ><?php echo $objResult2['about']; ?></td>
+                      <td class="text-center"><?php echo $objResult2['about']; ?></td>
 
 
-                      <td ><?php echo $objResult2['problem']; ?></td>
+                      <td class="text-center"><?php echo $objResult2['problem']; ?></td>
 
+                      <td class="text-center"><?php echo $objResult2['crt_date']; ?></td>
 
-
-                    <td><a href="fullview_end_work.php?case_id=<?php echo $objResult2['case_id']; ?>"class="btn btn-success">ดูรายละเอียด</a></td>
+                    <td class="text-center"><a href="fullview_end_work.php?case_id=<?php echo $objResult2['case_id']; ?>"class="btn btn-success">ดูรายละเอียด</a></td>
                     
                 </form>
                   </tr>
