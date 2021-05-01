@@ -20,7 +20,7 @@ if (isset($_POST['insert'])) {
 
     $sql = $insertdata->insertfixma($username, $section, $about, $problem, $number,$address,$notice,$crt_date,$crt_time);
     if($sql){
-      include_once('notiline.php');
+      include_once('email_1.php');
      echo "<script>alert('บันทึกสำเร็จ');</script>";
      echo "<script>window.location.href='re_ma.php'</script>";
     }else{
