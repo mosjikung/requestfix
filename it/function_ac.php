@@ -109,7 +109,23 @@
     $notti_user = mysqli_query($this->dbcon,"SELECT * FROM permiss where username = '$username' and status = '$status' and it_user = '$it_user'");
     return $notti_user;
   }
-  
+  public function insertaction2($action,$name,$surname,$account_id,$password,$email,$emailex,$file1,$per_r1,
+  $per_wr1,$per_mo1,$file2,$per_r2,$per_wr2,$per_mo2,$file3,$per_r3,$per_wr3,$per_mo3,$file4,$per_r4,$per_wr4
+  ,$per_mo4,$leader1,$strdate,$crt_time){ 
+
+  echo "INSERT INTO permiss (action,name,surname,account_id,password,email,emailex,
+  file1,per_r1,per_wr1,per_mo1,file2,per_r2,per_wr2,per_mo2,file3,per_r3,per_wr3,per_mo3,file4,per_r4,per_wr4,per_mo4,strdate,crt_time) values ('$action','$name','$surname','$account_id','$password','$email','$emailex','$file1','$per_r1',
+'$per_wr1','$per_mo1','$file2','$per_r2','$per_wr2','$per_mo2','$file3','$per_r3','$per_wr3','$per_mo3','$file4','$per_r4','$per_wr4'
+,'$per_mo4','$strdate','$crt_time')";
+   
+
+    $insertactionit = mysqli_query($this->dbcon,"INSERT INTO permiss (action,name,surname,account_id,password,email,emailex,
+    file1,per_r1,per_wr1,per_mo1,file2,per_r2,per_wr2,per_mo2,file3,per_r3,per_wr3,per_mo3,file4,per_r4,per_wr4,per_mo4,strdate,crt_time) values ('$action','$name','$surname','$account_id','$password','$email','$emailex','$file1','$per_r1',
+  '$per_wr1','$per_mo1','$file2','$per_r2','$per_wr2','$per_mo2','$file3','$per_r3','$per_wr3','$per_mo3','$file4','$per_r4','$per_wr4'
+  ,'$per_mo4',$leader1,'$strdate','$crt_time')");
+    return $insertactionit;
+    
+  }
   }
 
   
