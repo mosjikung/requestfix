@@ -11,10 +11,9 @@ error_reporting(0);
   }
 ?>
 <?php
-include_once ('function_spare.hpp');
+include_once ('function_spare.php');
 $detaildata = new DB_COND();
 $result2 = $detaildata->show_spare();
-
 ?>
 
 
@@ -89,10 +88,10 @@ $result2 = $detaildata->show_spare();
                 <thead class="thead-light">
                   <tr>
                   <th class="text-center" scope="col">ID</th>
-                    <th class="text-center" scope="col">ผู้แจ้ง</th>
-                    <th class="text-center" scope="col">ประเภท</th>
-                    <th class="text-center" scope="col">ปัญหา</th>
-                    <th class="text-center" scope="col">วันที่แจ้ง</th>
+                    <th class="text-center" scope="col">ชื่อไอเทม</th>
+                    <th class="text-center" scope="col">ประเภทไอเทม</th>
+                    <th class="text-center" scope="col">สถานะ</th>
+                    <th class="text-center" scope="col">รหัสไอเทม</th>
                     <th class="text-center" scope="col">Acept งาน</th>
                   </tr>
                 </thead>
@@ -105,18 +104,18 @@ $result2 = $detaildata->show_spare();
 
                    ?>
                   <tr>
-                  <td class="text-center"><?php echo $objResult['']; ?></td>
+                  <td class="text-center"><?php echo $objResult['part_id']; ?></td>
 
-                     <td class="text-center"><?php echo $objResult['username']; ?></td>
-
-
-                      <td class="text-center"><?php echo $objResult['about']; ?></td>
+                     <td class="text-center"><?php echo $objResult['part_name']; ?></td>
 
 
-                      <td class="text-center"><?php echo $objResult['problem']; ?></td>
+                      <td class="text-center"><?php echo $objResult['kind_part']; ?></td>
+
+
+                      <td class="text-center"><?php echo $objResult['status']; ?></td>
 
                       
-                      <td class="text-center"><?php echo $objResult['crt_date']; ?></td>
+                      <td class="text-center"><?php echo $objResult['serial_number']; ?></td>
 
 
 

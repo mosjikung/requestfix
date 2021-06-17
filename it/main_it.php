@@ -49,6 +49,12 @@
               <span class="nav-link-text">พิจารณาการซ่อม</span>
             </a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="check_spare.php">
+              <i class="ni ni-key-25 text-info"></i>
+              <span class="nav-link-text">ตรวจสอบอะไหล่สำรอง</span>
+            </a>
+          </li>
         
         </ul>
         <!-- Divider -->

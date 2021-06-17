@@ -19,5 +19,13 @@
         
         return $additem;
   }
+
+  public function show_spare(){
+       
+        $showdata = mysqli_query($this->dbcon,"SELECT * FROM part");
+        return $showdata;
+        
+  }
+      
 }
   ?>
