@@ -1,29 +1,50 @@
-
 <?php
 session_start();
-  if($_SESSION['username']==""){
-  echo "<script>window.location.href='index.php'</script>";
+
+error_reporting(0);
+  if($_SESSION['username']==''){
+  echo "<script>window.location.href='../index.php'</script>";
   }
-?>
+  if($_SESSION['section']!=='it'){
+    echo "<script>alert('คุณไม่มีสิทธิ์เข้าใช้งานหน้านี้');</script>";
+    echo "<script>window.location.href='../index.php'</script>";
+  }
 
-<?php
+
 include_once('function.php');
-$showapp = new DB_CON();
+$showlist = new DB_CON();
 $fix_stat = '';
-$can_fix = 'ซ่อมได้';
-$can_fix2 = '';
-$mgr_app = '';
-$result2 = $showapp->showlistapp($fix_stat,$can_fix,$can_fix2,$mgr_app);
+$fix_stat2 = 'working';
+$mgr_app = 'approve';
+$result = $showlist->alllist($fix_stat,$fix_stat2,$mgr_app);
 
-?>
+ ?>
+
+ <?php
+  include_once('function.php');
+  $checkdata = new DB_CON();
+   $fix_stat = '';
+   $result2 = $checkdata->count_list($fix_stat);
+  ?>
+
+
 <?php
-include_once('function.php');
-$showmgrs = new DB_CON();
-$fix_stat =  'working';
-$can_fix = 'ซ่อมได้';
-$mgr_app = '';
-$result3 = $showmgrs->nottification_mgr($can_fix,$fix_stat,$mgr_app);
+include_once('function_ac.php');
+$listdata = new DB_CONZ();
+$status = '';
+$leader_app = '';
+$result4 = $listdata->showalljob($status,$leader_app);
 ?>
+
+<?php
+include_once('function_spare.php');
+$show_p_data = new DB_COND();
+$result5 = $show_p_data->show_spare();
+?>
+
+
+
+
 
 <!DOCTYPE html>
 <html>
@@ -33,7 +54,7 @@ $result3 = $showmgrs->nottification_mgr($can_fix,$fix_stat,$mgr_app);
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
   <meta name="author" content="Creative Tim">
-  <title>Argon Dashboard - Free Dashboard for Bootstrap 4</title>
+  <title>Nutritionsc Request Fix</title>
   <!-- Favicon -->
   <link rel="icon" href="assets/img/brand/favicon.png" type="image/png">
   <!-- Fonts -->
@@ -52,15 +73,15 @@ $result3 = $showmgrs->nottification_mgr($can_fix,$fix_stat,$mgr_app);
   if($_SESSION['section']=="it"){
   include_once('main_it.php');
   include_once('top_it.php');
-  }elseif($_SESSION['username']=="akkaluk" || $_SESSION['username']=="tiwakorn"){
+  }elseif($_SESSION['username']=="akkaluk"){
   include_once('main_akkaluk.php');
   include_once('top_akkaluk.php');
   }elseif($_SESSION['section']=="hr" && $_SESSION['level_job']=="ผู้จัดการ"){
   include_once('main_hr_mgr.php');
   include_once('top_hr_mgr.php');
-  }elseif($_SESSION['level_job']=="ผู้จัดการ"){
-  include_once('main_mgr.php');
-  include_once('top_mgr.php');
+  }elseif($_SESSION['section']=="hr"){
+  include_once('main_ma.php');
+  include_once('top_ma.php');
   }elseif($_SESSION['section']=="hr"){
   include_once('main_hr.php');
   include_once('top_hr.php');
@@ -69,20 +90,22 @@ $result3 = $showmgrs->nottification_mgr($can_fix,$fix_stat,$mgr_app);
   include_once('top_user.php');
   }
   ?>
+
   <!-- Main content -->
-  
+ 
     <!-- Header -->
     <!-- Header -->
-    
+
     <!-- Page content -->
-    
+    <div class="container-fluid mt--0">
+     
       <div class="row">
         <div class="col-xl-12">
           <div class="card">
             <div class="card-header border-0">
               <div class="row align-items-center">
                 <div class="col">
-                  <h3 class="mb-0">รายการอนุมัติการซ่อม</h3>
+                  <h3 class="mb-0">List งานซ่อม IT</h3>
                 </div>
 
               </div>
@@ -93,36 +116,40 @@ $result3 = $showmgrs->nottification_mgr($can_fix,$fix_stat,$mgr_app);
               <table class="table align-items-center table-flush">
                 <thead class="thead-light">
                   <tr>
-                    <th class="text-center"  scope="col">ผู้แจ้ง</th>
-                    <th class="text-center"  scope="col">ประเภท</th>
-                    <th class="text-center"  scope="col">ปัญหา</th>
-                    <th class="text-center"  scope="col">Acept งาน</th>
+                  <th class="text-center" scope="col">Part ID</th>
+                    <th class="text-center" scope="col">Part Name</th>
+                    <th class="text-center" scope="col">ประเภท</th>
+                    <th class="text-center" scope="col">สถานะ</th>
+                    <th class="text-center" scope="col">วันที่เพิ่ม</th>
+                    <th class="text-center" scope="col">รายละเอียด</th>
                   </tr>
                 </thead>
                 <tbody>
 
                   <?php
 
-                  while($objResult = mysqli_fetch_array($result2)){
+                  while($objResult = mysqli_fetch_array($result5)){
 
 
                    ?>
                   <tr>
+                  <td class="text-center"><?php echo $objResult['part_id']; ?></td>
 
-                    <td  class="text-center" >  <?php echo $objResult['username']; ?></td>
-
-
-                      <td class="text-center" ><?php echo $objResult['about']; ?></td>
+                     <td class="text-center"><?php echo $objResult['part_name']; ?></td>
 
 
-                      <td class="text-center" ><?php echo $objResult['problem']; ?></td>
+                      <td class="text-center"><?php echo $objResult['kind_part']; ?></td>
+
+
+                      <td class="text-center"><?php echo $objResult['status']; ?></td>
+
+                      
+                      <td class="text-center"><?php echo $objResult['crt_date']; ?></td>
 
 
 
-                    <td class="text-center" ><a href="fullview_app_fix.php?case_id=<?php echo $objResult['case_id'];?>" class="btn btn-success">ดูรายละเอียดงาน</a></td>
-                <?php
-
-                 ?>
+                    <td class="text-center"><a href="show_spare_detail.php?part_id=<?php echo $objResult['part_id']; ?>" class="btn btn-success">รายละเอียด</a></td>
+                    
                 </form>
                   </tr>
                   <?php
@@ -137,6 +164,9 @@ $result3 = $showmgrs->nottification_mgr($can_fix,$fix_stat,$mgr_app);
             </div>
           </div>
         </div>
+      
+       
+        
       <!-- Footer -->
       <footer class="footer pt-0">
         <div class="row align-items-center justify-content-lg-between">
@@ -146,7 +176,7 @@ $result3 = $showmgrs->nottification_mgr($can_fix,$fix_stat,$mgr_app);
 
         </div>
       </footer>
-    
+    </div>
   </div>
   <!-- Argon Scripts -->
   <!-- Core -->
@@ -159,7 +189,7 @@ $result3 = $showmgrs->nottification_mgr($can_fix,$fix_stat,$mgr_app);
   <script src="assets/vendor/chart.js/dist/Chart.min.js"></script>
   <script src="assets/vendor/chart.js/dist/Chart.extension.js"></script>
   <!-- Argon JS -->
-  <script src="assets/js/argon.js?v=1.2.0"></script>
+  <script src="assets/js/stable.js"></script>
 </body>
 
 </html>

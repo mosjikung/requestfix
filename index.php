@@ -71,23 +71,7 @@
                 <button type="submit" name="login">submit</button>
             </form>
               <center><h7>สำหรับพนักงานใหม่<a href='../requestfix/it/re_action.php'>ลงทะเบียน<h7></center>
-              <ul class="bg-bubbles">
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-
-        </ul> 
+             
 
           </div>
         </div>

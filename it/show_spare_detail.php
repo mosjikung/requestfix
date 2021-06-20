@@ -1,48 +1,37 @@
 <?php
 session_start();
-include_once('function.php');
-$detail = new DB_CON();
-
-$case_id = $_GET['case_id'];
-$can_fix = "ซ่อมได้";
-$fix_stat = "working";
-$result = $detail->showmgr($case_id,$can_fix,$fix_stat);
+error_reporting(0);
+include_once('function_spare.php');
+$show_spare_d = new DB_COND;
+$part_id = $_GET['part_id'];
+$result2 = $show_spare_d->show_spare_detail($part_id);
 ?>
-
-<?php
-include_once('function.php');
-$updatefinish = new DB_CON();
-date_default_timezone_set("Asia/Bangkok");
-$last_update = date('Y-m-d');
-echo $last_update;
-$who_update = $_SESSION['username'];
-
-if(isset($_POST['update'])){
-$case_id = $_GET['case_id'];
-$notice = $_POST['notice'];
-$item = $_POST['item'];
-$s_item = $_POST['s_item'];
-$mgr_app = 'approve';
-
-  $updatefinish = $updatefinish->mgrapp($case_id,$notice,$item,$s_item,$mgr_app,$last_update,$who_update);
-  if($updatefinish){
-    echo "<script>alert('บันทึกสำเร็จ');</script>";
-    echo "<script>window.location.href='app_fix.php'</script>";
-  }else{
-    echo "<script>alert('เกิดข้อผิดพลาด');</script>";
-    echo "<script>window.location.href='app_fix.php'</script>";
-  }
-}
-
-
- ?>
  <?php
-include_once('function.php');
-$showmgrs = new DB_CON();
-$fix_stat =  'working';
-$can_fix = 'ซ่อมได้';
-$mgr_app = '';
-$result3 = $showmgrs->nottification_mgr($can_fix,$fix_stat,$mgr_app);
+  require_once('function.php');
+  $notti_user = new DB_CON();
+  $username = $_SESSION['username'];
+  $fix_stat = '';
+  $ac_name = '';
+  $result3  = $notti_user->nottification_user($username,$fix_stat,$ac_name);
+ ?>
+<?php
+  require_once('function_spare.php');
+  $update_spare_d = new DB_COND;
+  if(isset($_POST['update'])){
+    $part_id = $_GET['part_id'];
+    $part_name = $_POST['part_name'];
+    $kind_part = $_POST['kind_part'];
+    $serial_number = $_POST['serial_number'];
+    $detail = $_POST['detail'];
+    $result4 = $update_spare_d->update_spare_detail($part_id,$part_name,$kind_part,$serial_number,$detail);
+    if($update_spare_d){
+      echo "<script>alert('บันทึกสำเร็จ');</script>";
+      echo "<script>window.location.href='show_spare.php'</script>";
+    }else{
+      echo "<script>alert('เกิดข้อผิดพลาด');</script>";
+      echo "<script>window.location.href='show_spare.php'</script>";
+    }
+  } 
 ?>
 <!DOCTYPE html>
 <html>
@@ -52,7 +41,7 @@ $result3 = $showmgrs->nottification_mgr($can_fix,$fix_stat,$mgr_app);
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
   <meta name="author" content="Creative Tim">
-  <title>Requset Fix Nutritionsc</title>
+  <title>Request Fix</title>
   <!-- Favicon -->
   <link rel="icon" href="assets/img/brand/favicon.png" type="image/png">
   <!-- Fonts -->
@@ -66,8 +55,7 @@ $result3 = $showmgrs->nottification_mgr($can_fix,$fix_stat,$mgr_app);
 </head>
 
 <body>
-  <!-- Sidenav -->
-  <?php
+<?php
   if($_SESSION['section']=="it"){
   include_once('main_it.php');
   include_once('top_it.php');
@@ -101,7 +89,7 @@ $result3 = $showmgrs->nottification_mgr($can_fix,$fix_stat,$mgr_app);
               <div class="col-lg-12 order-lg-12">
                 <div class="card-profile-image">
 
-                  <h6>วิธีการใช้งาน</h6>
+                  <h3>วิธีการใช้งาน</h3>
 
                 </div>
               </div>
@@ -110,9 +98,16 @@ $result3 = $showmgrs->nottification_mgr($can_fix,$fix_stat,$mgr_app);
             <div class="card-body pt-0">
               <div class="row">
                 <div class="col">
-                  <div class="card-profile-stats d-flex justify-content-center">
+                  
+                <p id="test"></p>
+                  <label id="1">1.เลือกอุปกรณ์ที่จะใช้ในการซ่อมเช่น computer printer network</label><br>
+                  <label id="2">2.ใส่หมายเลขตัวเครื่อง อาจจะเป็น label สีแดงหรือสีน้ำเงินก็ได้ </label><br>
+                  <label id="3">3.ใส่อาการเสียที่พบ รายละเอียดของการเสีย เพื่อให้วิเคราะห์ได้ง่ายขึ้น</label><br>
+                  <label id="4">4.ในกรณีที่มีหมายเหตุ หรือคำอธิบายเพิ่มเติมสามารถใส่ข้อมูลเพิ่มเติมได้พร้อมทั้ง #ชื่อบุคคลนั้นๆ</label><br>
+                  <label id="5">5.หากพบว่าโปรแกรมมีปัญหา สามารถแจ้งได้ที่เบอร์3777 หรือline it support nt group</label><br>
+                 
 
-                  </div>
+                  
                 </div>
               </div>
 
@@ -124,91 +119,61 @@ $result3 = $showmgrs->nottification_mgr($can_fix,$fix_stat,$mgr_app);
             <div class="card-header">
               <div class="row align-items-center">
                 <div class="col-8">
-                  <h3 class="mb-0">ใบแจ้งซ่อมฝ่าย IT</h3>
+                  <h3 class="mb-0">เพิ่ม Spare Part</h3>
                 </div>
                 <div class="col-4 text-right">
 
                 </div>
               </div>
             </div>
-
+            <?php
+            while ($objResult = mysqli_fetch_array($result2)){
+            ?>
             <div class="card-body">
-
-              <?php
-            while($objResult=mysqli_fetch_array($result)){
-               ?>
-               <?php
-                 
-                ?>
               <form name='form1' method="post">
                 <h6 class="heading-small text-muted mb-4">โปรดใส่ข้อมูลให้ครบ</h6>
                 <div class="pl-lg-4">
                   <div class="row">
                     <div class="col-lg-6">
-
-                      <div class="form-group">
-                          <label><?php echo $objResult['about'];?></label>
-                      </div>
+                    <div class="form-group">
+                    <input type="text" class="form-control" name="part_name" id="part_name"  value="<?php echo $objResult['part_name'];?>">
                     </div>
+                    </div>
+                  
+                    
                     <div class="col-lg-6">
-                      <div class="form-group">
+                    <div class="form-group">
 
-                        <label><?php echo $objResult['number'];?></label>
+                      <input type="text" class="form-control" name="kind_part" id="kind_part" value="<?php echo $objResult['kind_part'];?>">
                       </div>
+                      
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-lg-6">
                       <div class="form-group">
-                        <label><?php echo $objResult['problem'];?></label>
 
+                        <input type="textarea" id="detail" name="detail" class="form-control" value="<?php echo $objResult['detail'];?>">
                       </div>
                     </div>
+                    <div class="col-lg-6">
+                    <div class="form-group">
 
-                  </div>
-                  <div class="row">
-
-
-                  <div class="col-lg-12">
-
-                      <div class="form-group">
-                        <label class="form-control-label">หมายเหตุ</label>
-                        <textarea rows="4" id="notice" name="notice" class="form-control" value="<?php echo $objResult['notice'];?>"><?php echo $objResult['notice'];?></textarea>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                      <select class="form-control" name="can_fix" id="can_fix">
-                          <option class="hidden"  value="<?php echo $objResult['can_fix'];?>"  selected disabled><?php echo $objResult['can_fix'];?></option>
-
-                          <option value="ซ่อมได้">ซ่อมได์</option>
-                          <option value="ซ่อมได้โดยเปลี่ยนอุปกรณ์">ซ่อมได้โดยเปลี่ยนอุปกรณ์</option>
-                          <option value="ซ่อมไม่ได้">ซ่อมไม่ได้</option>
-                          <option value="ส่งซ่อมภายนอก">ส่งซ่อมภายนอก</option>
-
-
-                      </select>
-                  </div>
-
-                  <div class="form-group">
-
-                    <input type="text" id="item" name="item" class="form-control" placeholder = "อุปกรณ์ที่เปลี่ยน" value=<?php echo $objResult['item'];?>>
-                  </div>
-                  <div class="form-group">
-
-                    <input type="text" id="s_item" name="s_item" class="form-control" placeholder = "serial number" value=<?php echo $objResult['s_item'];?>>
-                  </div>
-
+                <input type="text" id="serial_number" name="serial_number" class="form-control" value="<?php echo $objResult['serial_number'];?>">
                 </div>
-                <center><button type="submit" name="update" class="btn btn-success">อนุมัติ</button></center>
-              </form>
+                    </div>
+
+                  </div>
             <?php
-
-          }
-  
-         ?>
+                }
+                ?>
+                </div>
+                <center><button type="submit" name="update" class="btn btn-success">update</button></center>
+              </form>
+            </div>
+          </div>
+        </div>
       </div>
-
       <!-- Footer -->
       <footer class="footer pt-0">
         <div class="row align-items-center justify-content-lg-between">

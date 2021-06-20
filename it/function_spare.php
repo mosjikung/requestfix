@@ -26,6 +26,19 @@
         return $showdata;
         
   }
+  public function show_spare_detail($part_id){
+        $show_s_d = mysqli_query($this->dbcon,"SELECT * FROM part where part_id = '$part_id'");
+        return $show_s_d;
+  }
+
+  public function update_spare_detail($part_id,$part_name,$kind_part,$serial_number,$detail){
+      echo "UPDATE part SET part_name = '$part_name',kind_part = '$kind_part',serial_number = '$serial_number',detail = '$detail';
+      where part_id = '$part_id'";
+      $update_s_d = mysqli_query($this->dbcon,"UPDATE part SET part_name = '$part_name',kind_part = '$kind_part',serial_number = '$serial_number',detail = '$detail'
+      where part_id = '$part_id'");
+      return $update_s_d;
+  }
+
       
 }
   ?>
