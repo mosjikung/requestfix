@@ -1,5 +1,6 @@
 <?php
 session_start();
+error_reporting(0);
 include_once('function.php');
 $detail = new DB_CON();
 
@@ -20,11 +21,10 @@ $who_update = $_SESSION['username'];
 if(isset($_POST['update'])){
 $case_id = $_GET['case_id'];
 $notice = $_POST['notice'];
-$item = $_POST['item'];
-$s_item = $_POST['s_item'];
+$item = $_POST['part'];
 $mgr_app = 'approve';
 
-  $updatefinish = $updatefinish->mgrapp($case_id,$notice,$item,$s_item,$mgr_app,$last_update,$who_update);
+  $updatefinish = $updatefinish->mgrapp($case_id,$notice,$item,$mgr_app,$last_update,$who_update);
   if($updatefinish){
     echo "<script>alert('บันทึกสำเร็จ');</script>";
     echo "<script>window.location.href='app_fix.php'</script>";
@@ -43,6 +43,12 @@ $fix_stat =  'working';
 $can_fix = 'ซ่อมได้';
 $mgr_app = '';
 $result3 = $showmgrs->nottification_mgr($can_fix,$fix_stat,$mgr_app);
+?>
+<?php
+include_once('function_spare.php');
+$show_data  = new DB_COND();
+$status = 'not used';
+$result6 = $show_data->spare_not_used($status);
 ?>
 <!DOCTYPE html>
 <html>
@@ -189,15 +195,30 @@ $result3 = $showmgrs->nottification_mgr($can_fix,$fix_stat,$mgr_app);
 
                       </select>
                   </div>
+                  <div class="form-group">
+                      <select class="form-control" name="part" id="part" onchange="myfunction()">
+                          <option class="hidden"  value=""  selected disabled></option>
+                          <?php
+                          while($objResult6 = mysqli_fetch_array($result6)){
+                            ?>
+
+                          <option value="<?php echo $objResult6['part_id'];?>"><?php echo $objResult6['part_name'];?></option>
+
+                          <?php
+                          }
+                         ?>
+
+
+                      </select>
+                  </div>
+                        
+                 
 
                   <div class="form-group">
 
                     <input type="text" id="item" name="item" class="form-control" placeholder = "อุปกรณ์ที่เปลี่ยน" value=<?php echo $objResult['item'];?>>
                   </div>
-                  <div class="form-group">
-
-                    <input type="text" id="s_item" name="s_item" class="form-control" placeholder = "serial number" value=<?php echo $objResult['s_item'];?>>
-                  </div>
+                  
 
                 </div>
                 <center><button type="submit" name="update" class="btn btn-success">อนุมัติ</button></center>

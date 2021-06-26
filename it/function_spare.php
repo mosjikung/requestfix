@@ -38,6 +38,12 @@
       where part_id = '$part_id'");
       return $update_s_d;
   }
+  public function spare_not_used($status){
+       
+      $spare_no_u = mysqli_query($this->dbcon,"SELECT * FROM part where status = '$status'");
+      return $spare_no_u;
+      
+}
 
       
 }

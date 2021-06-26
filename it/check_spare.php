@@ -119,7 +119,7 @@ $result2 = $detaildata->show_spare();
 
 
 
-                    <td class="text-center"><a href="it_page.php?case_id=<?php echo $objResult['case_id']; ?>&update=1" onClick="return confirm('คุณต้องการรับงานนี้หรือไม่ ?');" class="btn btn-success">รับงาน</a></td>
+                    <td class="text-center"><a href="show_spare_detail.php?part_id=<?php echo $objResult['part_id']; ?>"  class="btn btn-success">ดูรายละเอียดงาน</a></td>
                     
                 </form>
                   </tr>
