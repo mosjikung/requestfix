@@ -92,9 +92,9 @@
           return $finishwork;
         }
 
-        public function mgrapp($case_id , $notice ,$item,$mgr_app,$last_update,$who_update){
+        public function mgrapp($case_id , $notice ,$part_id,$mgr_app,$last_update,$who_update){
           echo "UPDATE fix_it SET notice = '$notice' ,mgr_app = '$mgr_app',last_update = '$last_update',who_update = '$who_update' where case_id = '$case_id'";
-          $mgr_app = mysqli_query($this->dbcon,"UPDATE fix_it SET notice = '$notice' ,item = '$item',mgr_app = '$mgr_app',last_update = '$last_update',who_update = '$who_update' where case_id = '$case_id'");
+          $mgr_app = mysqli_query($this->dbcon,"UPDATE fix_it SET notice = '$notice' ,part_id = '$part_id',mgr_app = '$mgr_app',last_update = '$last_update',who_update = '$who_update' where case_id = '$case_id'");
           return $mgr_app;
        }
 

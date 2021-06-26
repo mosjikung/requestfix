@@ -21,10 +21,10 @@ $who_update = $_SESSION['username'];
 if(isset($_POST['update'])){
 $case_id = $_GET['case_id'];
 $notice = $_POST['notice'];
-$item = $_POST['part'];
+$part_id = $_POST['part'];
 $mgr_app = 'approve';
 
-  $updatefinish = $updatefinish->mgrapp($case_id,$notice,$item,$mgr_app,$last_update,$who_update);
+  $updatefinish = $updatefinish->mgrapp($case_id,$notice,$part_id,$mgr_app,$last_update,$who_update);
   if($updatefinish){
     echo "<script>alert('บันทึกสำเร็จ');</script>";
     echo "<script>window.location.href='app_fix.php'</script>";
